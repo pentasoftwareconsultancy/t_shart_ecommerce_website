@@ -1,0 +1,64 @@
+/* General Styles for the Cards */
+.card {
+    width: 180px; /* Adjust width as per your preference */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin: 10px;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+  }
+  
+  /* Image Section */
+  .imageContainer {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image {
+    width: 80%;
+    height: auto;
+    cursor: pointer; /* Indicating that the image is clickable */
+    transition: transform 0.2s ease; /* Smooth zoom effect on hover */
+  }
+  
+  .image:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+  }
+  
+  /* Card Content (Name and Price) */
+  .details {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .name {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .price {
+    font-size: 14px;
+    color: #2c8ebb;
+  }
+  
+  /* Styling the container that holds the cards */
+  .cardContainer {
+    display: flex;               /* Enables flexbox */
+    flex-wrap: wrap;              /* Allow wrapping into multiple lines */
+    justify-content: center;     /* Center the cards horizontally */
+    gap: 20px;                   /* Adds space between the cards */
+    padding: 20px;
+  }
+  
+  .cardContainer .card {
+    flex: 0 1 180px;             /* Ensures the card width is 180px */
+  }
+  
