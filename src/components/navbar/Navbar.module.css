@@ -1,0 +1,9 @@
+.Navbar{
+    display: flex;
+    gap: 30px;
+    font-size: 25px;
+}
+.search{
+     display: "flex"; 
+     align-items:  "center";
+}
