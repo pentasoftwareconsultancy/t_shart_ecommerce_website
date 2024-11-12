@@ -1,12 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./Hero.module.css";
+import images1 from './images/logo1.jpeg';
+import images2 from './images/logo2.jpeg';
 
 const Hero = () => {
   // State for shirt overlay color in each slider
   const [slider1Color, setSlider1Color] = useState("#FF0000"); // Default color: red
   const [slider2Color, setSlider2Color] = useState("#0000FF"); // Default color: blue
 
-  // Ref to the canvas element
+
   const canvasRef1 = useRef(null);
   const canvasRef2 = useRef(null);
   const imgRef1 = useRef(null);
@@ -14,8 +16,8 @@ const Hero = () => {
 
   // Slider images - using the same image for both sliders for demonstration
   const sliderImages = [
-    { id: 1, imagePath: "heroimage.webp" },
-    { id: 2, imagePath: "heroimage2.webp" },
+    { id: 1, imagePath: images1 },
+    { id: 2, imagePath: images2 },
   ];
 
   // Function to apply color change at the pixel level
