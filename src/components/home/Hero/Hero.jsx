@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./Hero.module.css";
-import images1 from './images/logo1.jpeg';
+import images1 from './images/shirt.jpg';
 import images2 from './images/logo2.jpeg';
 
 const Hero = () => {
