@@ -26,7 +26,7 @@ function Navbar(){
               type="text"
               placeholder="Search..."
               style={{
-                marginLeft: "10px",
+                marginLeft: "-200px",
                 padding: "8px",
                 width: "200px",
                 border: "1px solid #ccc",

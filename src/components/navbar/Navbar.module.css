@@ -6,4 +6,14 @@
 .search{
      display: "flex"; 
      align-items:  "center";
+     margin-left: 4g00px;
+}
+.search input{
+    
+        margin-Left: "50px";
+        padding: "8px";
+        width: "400px";
+        border: "1px solid #ccc";
+        border-Radius: "4px";
+     
 }
