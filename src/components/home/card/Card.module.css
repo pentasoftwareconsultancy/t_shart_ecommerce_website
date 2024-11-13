@@ -1,64 +1,75 @@
-/* General Styles for the Cards */
+/* Card.module.css */
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+ 
+  
+}
+
 .card {
-    width: 180px; /* Adjust width as per your preference */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: white;
-    margin: 10px;
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
-  }
-  
-  /* Image Section */
-  .imageContainer {
-    width: 100%;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .image {
-    width: 80%;
-    height: auto;
-    cursor: pointer; /* Indicating that the image is clickable */
-    transition: transform 0.2s ease; /* Smooth zoom effect on hover */
-  }
-  
-  .image:hover {
-    transform: scale(1.05); /* Zoom effect on hover */
-  }
-  
-  /* Card Content (Name and Price) */
-  .details {
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .name {
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .price {
-    font-size: 14px;
-    color: #2c8ebb;
-  }
-  
-  /* Styling the container that holds the cards */
+  background-color: rgb(203, 201, 201);
+  border-radius: 20px;
+  overflow: hidden;
+  height: 200px; /* Adjusted height for the card */
+  box-shadow: 0 4px 8px rgba(54, 54, 54, 0.1);
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 180px; /* Adjusted height of the image container */
+  padding: 0 0px; /* Added padding to center the image */
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* Center image horizontally */
+  align-items: center; /* Center image vertically */
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the full image is visible without cropping */
+  border-radius: 12px; /* Rounded square effect */
+  transition: transform 0.3s ease;
+  padding-top: 30px;
+  border-radius: 20px;
+}
+
+.card:hover .image {
+  transform: scale(1.05); /* Slight zoom effect on image */
+}
+
+.details {
+  padding: 15px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.name {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.price {
+  display: block;
+  font-size: 14px;
+  color: #777;
+  margin-top: 5px;
+}
+
+@media (max-width: 1200px) {
   .cardContainer {
-    display: flex;               /* Enables flexbox */
-    flex-wrap: wrap;              /* Allow wrapping into multiple lines */
-    justify-content: center;     /* Center the cards horizontally */
-    gap: 20px;                   /* Adds space between the cards */
-    padding: 20px;
+    grid-template-columns: repeat(5, 1fr); /* 4 cards per row for larger tablets and smaller screens */
   }
-  
-  .cardContainer .card {
-    flex: 0 1 180px;             /* Ensures the card width is 180px */
-  }
-  
+}
+

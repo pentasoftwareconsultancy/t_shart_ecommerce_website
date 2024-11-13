@@ -1,96 +1,56 @@
 .heroSection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    background-color: #f4f4f4;
-  }
-  
-  .sliderContainer {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-  }
-  
-  .sliderWrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border-radius: 8px;
-  }
-  
-  .sliderImageContainer {
-    position: relative;
-    width: 500px;
-    height: 400px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .shirtImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .canvasOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-  }
-  
-  .colorOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    opacity: 0.6;
-    background-color: transparent;
-  }
-  
-  .colorPicker {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .colorPicker label {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
-  
-  .colorPicker input[type="color"] {
-    width: 40px;
-    height: 40px;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-  
-  @media (max-width: 768px) {
-    .sliderContainer {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .sliderWrapper {
-      width: 80%;
-      max-width: 500px;
-    }
-  }
-  
+  padding: 50px 0;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.sliderContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.sliderWrapper {
+  width: 45%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sliderImageContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.shirtImage {
+  width: 100%; /* Image takes up full width of its container */
+  max-width: 400px; /* Max width to control image size */
+  object-fit: cover; /* Maintain aspect ratio */
+  border-radius: 5px;
+}
+
+.arrowButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.arrowBtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 10px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.arrowBtn:hover {
+  color: #007bff;
+}

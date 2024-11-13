@@ -1,70 +1,46 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./Hero.module.css";
-import images1 from './images/shirt.jpg';
+import images1 from './images/tshirt.jpg';
 import images2 from './images/logo2.jpeg';
+// import images3 from './images/shirt2.jpg';
 
 const Hero = () => {
-  // State for shirt overlay color in each slider
-  const [slider1Color, setSlider1Color] = useState("#FF0000"); // Default color: red
-  const [slider2Color, setSlider2Color] = useState("#0000FF"); // Default color: blue
+  // State for slider 1 and slider 2
+  const [currentImage1, setCurrentImage1] = useState(0);
+  const [currentImage2, setCurrentImage2] = useState(0);
 
-
-  const canvasRef1 = useRef(null);
-  const canvasRef2 = useRef(null);
-  const imgRef1 = useRef(null);
-  const imgRef2 = useRef(null);
-
-  // Slider images - using the same image for both sliders for demonstration
-  const sliderImages = [
-    { id: 1, imagePath: images1 },
-    { id: 2, imagePath: images2 },
+  // Slider images - now we have a single image per slide for each slider
+  const sliderImages1 = [
+    images1,
+    images2,
+    // images3, // Uncomment and add more images as needed
   ];
 
-  // Function to apply color change at the pixel level
-  const applyColorChange = (canvasRef, imgRef, color) => {
-    const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
-    context.drawImage(imgRef.current, 0, 0, canvas.width, canvas.height);
+  const sliderImages2 = [
+    images1,
+    images2,
+    // images3, // Uncomment and add more images as needed
+  ];
 
-    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-    const data = imageData.data;
-
-    // Convert hex color to RGB
-    const r = parseInt(color.slice(1, 3), 16);
-    const g = parseInt(color.slice(3, 5), 16);
-    const b = parseInt(color.slice(5, 7), 16);
-
-    // Loop through all pixels and change shirt color based on specific conditions
-    for (let i = 0; i < data.length; i += 4) {
-      const red = data[i];
-      const green = data[i + 1];
-      const blue = data[i + 2];
-
-      // Condition for detecting shirt color (for example, red or blue shirt)
-      if (red > 100 && green < 100 && blue < 100) {
-        // Change shirt color (modify red, green, blue values)
-        data[i] = r;     // Red channel
-        data[i + 1] = g; // Green channel
-        data[i + 2] = b; // Blue channel
-      } else if (blue > 100 && red < 100 && green < 100) {
-        // Optional: Add another condition for a different shirt color (e.g., blue)
-        data[i] = r;
-        data[i + 1] = g;
-        data[i + 2] = b;
-      }
-    }
-
-    context.putImageData(imageData, 0, 0);
+  // Function to go to the next image for Slider 1
+  const goToNextImage1 = () => {
+    setCurrentImage1((prev) => (prev + 1) % sliderImages1.length);
   };
 
-  useEffect(() => {
-    if (imgRef1.current && canvasRef1.current) {
-      applyColorChange(canvasRef1, imgRef1, slider1Color);
-    }
-    if (imgRef2.current && canvasRef2.current) {
-      applyColorChange(canvasRef2, imgRef2, slider2Color);
-    }
-  }, [slider1Color, slider2Color]);
+  // Function to go to the previous image for Slider 1
+  const goToPrevImage1 = () => {
+    setCurrentImage1((prev) => (prev - 1 + sliderImages1.length) % sliderImages1.length);
+  };
+
+  // Function to go to the next image for Slider 2
+  const goToNextImage2 = () => {
+    setCurrentImage2((prev) => (prev + 1) % sliderImages2.length);
+  };
+
+  // Function to go to the previous image for Slider 2
+  const goToPrevImage2 = () => {
+    setCurrentImage2((prev) => (prev - 1 + sliderImages2.length) % sliderImages2.length);
+  };
 
   return (
     <section className={styles.heroSection}>
@@ -72,54 +48,42 @@ const Hero = () => {
         {/* Slider 1 */}
         <div className={styles.sliderWrapper}>
           <div className={styles.sliderImageContainer}>
+            {/* Display one image at a time */}
             <img
-              ref={imgRef1}
-              src={sliderImages[0].imagePath}
-              alt="Slider 1 - Image"
+              src={sliderImages1[currentImage1]}
+              alt={`Slider 1 - Image ${currentImage1 + 1}`}
               className={styles.shirtImage}
-              style={{ display: "none" }}
             />
-            <canvas
-              ref={canvasRef1}
-              width={400} // Set canvas width
-              height={400} // Set canvas height (match image size)
-            ></canvas>
           </div>
-          {/* Color picker for Slider 1 */}
-          <div className={styles.colorPicker}>
-            <label>Select Color:</label>
-            <input
-              type="color"
-              value={slider1Color}
-              onChange={(e) => setSlider1Color(e.target.value)}
-            />
+          {/* Arrow buttons for Slider 1 */}
+          <div className={styles.arrowButtons}>
+            <button onClick={goToPrevImage1} className={styles.arrowBtn}>
+              &lt; {/* Left Arrow */}
+            </button>
+            <button onClick={goToNextImage1} className={styles.arrowBtn}>
+              &gt; {/* Right Arrow */}
+            </button>
           </div>
         </div>
 
         {/* Slider 2 */}
         <div className={styles.sliderWrapper}>
           <div className={styles.sliderImageContainer}>
+            {/* Display one image at a time */}
             <img
-              ref={imgRef2}
-              src={sliderImages[1].imagePath}
-              alt="Slider 2 - Image"
+              src={sliderImages2[currentImage2]}
+              alt={`Slider 2 - Image ${currentImage2 + 1}`}
               className={styles.shirtImage}
-              style={{ display: "none" }}
             />
-            <canvas
-              ref={canvasRef2}
-              width={400} // Set canvas width
-              height={400} // Set canvas height (match image size)
-            ></canvas>
           </div>
-          {/* Color picker for Slider 2 */}
-          <div className={styles.colorPicker}>
-            <label>Select Color:</label>
-            <input
-              type="color"
-              value={slider2Color}
-              onChange={(e) => setSlider2Color(e.target.value)}
-            />
+          {/* Arrow buttons for Slider 2 */}
+          <div className={styles.arrowButtons}>
+            <button onClick={goToPrevImage2} className={styles.arrowBtn}>
+              &lt; {/* Left Arrow */}
+            </button>
+            <button onClick={goToNextImage2} className={styles.arrowBtn}>
+              &gt; {/* Right Arrow */}
+            </button>
           </div>
         </div>
       </div>
