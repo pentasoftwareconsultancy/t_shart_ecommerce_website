@@ -1,72 +1,92 @@
-import React, {useState} from 'react'
-import styles from './Navbar.module.css'
-import { CiSearch } from "react-icons/ci";
-import { MdAccountCircle } from "react-icons/md";
-import { BsBagHeartFill } from "react-icons/bs";
-import { FaCartShopping } from "react-icons/fa6";
-function Navbar(){
-  const [isSearchBarOpen, setSearchBarOpen] = useState(false);
-  const toggleSearchBar = () => {
-    setSearchBarOpen(!isSearchBarOpen);
-  };
-  return (
-    <div>
-      <div className={styles.Navbar}>
-        <a className={styles.logo}>Logo</a>
-      <a>Home </a>
-      <a>About Us</a>
-      <div className={styles.dropdown}>
-      <a className={styles.dropbtn}>Collections
-       </a>
-      <div className={styles.dropdowncontent}>
-        <a>Shirts</a>
-        <a>Hats</a>
-      </div>
-      </div>
-      <a>Shirts</a>
-      <a>Hats</a>
-      <a>Contact</a>
-      <a className={styles.search}>
-          <CiSearch
-            size={25}
-            style={{ cursor: "pointer",
-             
-             }}
-            onClick={toggleSearchBar}
-          />
-          {isSearchBarOpen && (
-            <input
-              type="text"
-              placeholder="Search..."
-              style={{
-                marginLeft: "-250px",
-                padding: "9px",
-                margintop:"-30px",
-                width: "200px",
-                border: "1px solid #ccc",
-                borderRadius: "6px",
-               
-              }}
-            />
-          )}
-        </a>
-        <div className={styles.login}>
-         
-          <a><BsBagHeartFill /></a>
-          <a><FaCartShopping /></a>
-           <div className={styles.dropdown}>
-           <a className={styles.searchs}><MdAccountCircle /></a>
-           <div className={styles.dropdowncontent}>
-            <a><MdAccountCircle />Login</a>
-        <a><BsBagHeartFill />Bag</a>
-        <a><FaCartShopping />Cart</a>
-      </div>
-           </div>
-        </div>
-        {/* <div className={styles.logout}>Log Out</div> */}
-      </div>
-    </div>
-  )
-}
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import styles from "./Navbar.module.css";
+import { FaSearch, FaHeart, FaShoppingCart, FaUserCircle } from "react-icons/fa";
 
-export default Navbar
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [collectionsOpen, setCollectionsOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const toggleCollections = () => setCollectionsOpen(!collectionsOpen);
+  const toggleProfile = () => setProfileOpen(!profileOpen);
+
+  const handleSearchChange = (e) => setSearchQuery(e.target.value);
+
+  return (
+    <nav className={styles.navbar}>
+      <div className={styles.logo}>Logo</div>
+      <ul className={`${styles.navLinks} ${menuOpen ? styles.active : ""}`}>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li className={styles.dropdown}>
+          <a onClick={toggleCollections} className={styles.dropdownToggle}>
+            Collections
+          </a>
+          {collectionsOpen && (
+            <ul className={styles.dropdownMenu}>
+              <li>
+                <Link to="/collections/shirts">Shirts</Link>
+              </li>
+              <li>
+                <Link to="/collections/caps">Caps</Link>
+              </li>
+            </ul>
+          )}
+        </li>
+        <li>
+          <Link to="/shirts">Shirt</Link>
+        </li>
+        <li>
+          <Link to="/caps">Cap</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact</Link>
+        </li>
+      </ul>
+
+      {/* Search Bar */}
+      <div className={styles.searchBar}>
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={handleSearchChange}
+          placeholder="Search..."
+          className={styles.searchInput}
+        />
+        <FaSearch className={styles.searchIcon} />
+      </div>
+
+      {/* Icons Section */}
+      <div className={styles.icons}>
+        <FaHeart className={styles.icon} />
+        <FaShoppingCart className={styles.icon} />
+        <div className={styles.dropdown}>
+          <FaUserCircle className={styles.icon} onClick={toggleProfile} />
+          {profileOpen && (
+            <ul className={styles.profileDropdownMenu}>
+              <li>Wishlist</li>
+              <li>Cart</li>
+              <li>Login</li>
+            </ul>
+          )}
+        </div>
+      </div>
+
+      {/* Hamburger Menu for Mobile */}
+      <div className={styles.menuToggle} onClick={toggleMenu}>
+        <div className={styles.bar}></div>
+        <div className={styles.bar}></div>
+        <div className={styles.bar}></div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
