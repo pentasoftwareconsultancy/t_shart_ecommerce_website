@@ -2,7 +2,7 @@
 
 .cardContainer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 50px;
   padding-left: 20px;
   padding-right: 20px;
@@ -17,74 +17,85 @@
   background-color: white;
   border-radius: 20px;
   overflow: hidden;
-  height: 400px; /* Adjusted height for the card */
+  height: 400px;
   box-shadow: 0 4px 8px rgba(54, 54, 54, 0.1);
   transition: box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   width: 300px;
+  padding :15px 15px 15px 15px;
   
 }
 
 .imageContainer {
   width: 300px;
-  height: 300px; /* Adjusted height of the image container */
-  padding: 0 0px; /* Added padding to center the image */
+  height: 300px; 
+  padding: 0 0px; 
   overflow: hidden;
   display: flex;
-  justify-content: center; /* Center image horizontally */
-  align-items: center; /* Center image vertically */
+  justify-content: center; 
+  align-items: center; 
 }
 
 .image {
   width: 300px;
   height: 300px;
-  object-position: center; /* Ensures the full image is visible without cropping */
-  /* border-radius: 12px; Rounded square effect */
+  object-position: center; 
   transition: transform 0.3s ease;
-  /* padding-top: 30px; */
-  /* border-radius: 20px; */
 }
 
 .card:hover .image {
-  transform: scale(1.05); /* Slight zoom effect on image */
+  transform: scale(1.05); 
 }
 
 .details {
   padding: 15px;
   display: flex;
-  justify-content: space-between; /* Aligns name and price */
+  justify-content: space-between; 
   font-weight: bolder;
+  align-items: center;
+  width: 90%;
 }
-.details:hover{
+/* .details:hover{
   background-color: aliceblue;
-}
+} */
 .name {
   font-size: 20px;
   font-weight: bolder;
   color: black;
+  cursor: pointer;
 }
 .name:hover{
-  background-color: #555;
-  border-radius: 20px;
+  background-color: rgb(218, 216, 216);;
+  border-radius: 10px;
 }
 
 .price {
   font-size: 20px;
   color: black;
   font-weight: bolder;
+  cursor: pointer;
 }
 .price:hover{
-  background-color: #555;
-  border-radius: 20px;
+  background-color: rgb(218, 216, 216);
+  border-radius: 10px;
+  border-width: 30px;
+}
+.actions{
+  padding: 15px;
+  display: flex;
+  justify-content: space-between; 
+  font-weight: bolder;
+  align-items: center;
+  width: 80%;
 }
 
-.actions {
+
+
+.actions > div {
   display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 10px;
+  flex-direction: column; 
+  gap: 10px;
 }
 
 
@@ -93,11 +104,12 @@
   color: #555;
   cursor: pointer;
   transition: color 0.3s;
-  justify-content: space-between;
+  margin-left: 30px;
+  
 }
 
 .icon:hover {
-  color: #000000; /* Change color on hover for interaction feedback */
+  color: #000000; 
 }
 
 @media (max-width: 1200px) {

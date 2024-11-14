@@ -45,14 +45,17 @@ const Card = ({ id, image, name, price }) => {
 
       {/* Add to Cart icon below price */}
       <div className={styles.actions}>
-        <FaCartPlus className={styles.icon} onClick={handleNavigateToAddToCart} />
-      </div>
-
-      {/* Favorite icon below name */}
-      <div className={styles.actions}>
-        <FaHeart className={styles.icon} onClick={handleNavigateToFavorites} />
-      </div>
+      <div className={styles.iconContainer}>
+      <FaHeart className={styles.icon} onClick={handleNavigateToFavorites} />
     </div>
+
+    {/* Add to Cart Icon - Positioned at the right */}
+    <div className={styles.iconContainer}>
+      <FaCartPlus className={styles.icon} onClick={handleNavigateToAddToCart} />
+    </div>
+  </div>
+</div>
+    
   );
 };
 
