@@ -1,11 +1,11 @@
 /* ProductDetails.module.css */
-@media screen {
+
   
 .productDetailsContainer {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background-color:rgb(238, 238, 238);
+  background-color:rgb(235, 235, 235);
   margin-top: 70px;
 }
 
@@ -16,8 +16,7 @@
 
 .productImage {
   width: 80%;
-  height: auto;
-  max-width: 400px;
+  height: 400px;
 }
 
 .detailsContainer {
@@ -76,4 +75,7 @@ h3 {
   height: 30px;
   border-radius: 100px;
 }
+
+@media screen {
+  
 }
