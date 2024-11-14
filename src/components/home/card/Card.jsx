@@ -1,12 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
-import { FaCartPlus, FaHeart } from 'react-icons/fa'; // Importing icons for Add to Cart and Favorite
-import styles from './Card.module.css'; // Importing the CSS module for styles
+import { useNavigate } from 'react-router-dom';
+import { FaHeart } from 'react-icons/fa'; // Importing the heart icon for favorite
+import styles from './Card.module.css'; // Import the CSS module for styling
 import image1 from '../logoimg/logo1.jpeg'; // Images
 import image2 from '../logoimg/logo2.jpeg';
 import image3 from '../logoimg/logo3.jpeg';
 
-// Data array for the cards
+// Sample card data
 const cardData = [
   { id: "card-1", image: image1, name: "Brand Logo 1", price: "$100.00" },
   { id: "card-2", image: image2, name: "Brand Logo 2", price: "$200.00" },
@@ -17,71 +17,78 @@ const cardData = [
   { id: "card-7", image: image2, name: "Brand Logo 7", price: "$700.00" },
   { id: "card-8", image: image1, name: "Brand Logo 8", price: "$800.00" },
   { id: "card-9", image: image2, name: "Brand Logo 9", price: "$900.00" },
-  { id: "card-10", image: image3, name: "Brand Logo 10", price: "$1000.00" },
+  { id: "card-10", image: image3,name: "Brand Logo 10", price: "$1000.00" },
 ];
 
 const CardsGrid = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   // Handle navigation to ProductDetails page
   const handleNavigateToProductDetails = (id, image, name, price) => {
     navigate(`/product/${id}`, { state: { id, image, name, price } });
   };
 
-  // Handle navigation to Add to Cart page
-  const handleNavigateToAddToCart = () => {
-    navigate('/add-to-cart');
+  // Handle Add to Cart button click
+  const handleAddToCart = (id) => {
+    alert(`Added to cart: ${id}`); // Placeholder action
   };
 
-  // Handle navigation to Favorites page
-  const handleNavigateToFavorites = () => {
-    navigate('/favorites');
+  // Handle Favorite button click
+  const handleFavorite = (id) => {
+    alert(`Added to favorites: ${id}`); // Placeholder action
   };
 
   return (
-    <div className={styles.cardContainer}>
-      {cardData.map((card) => (
-        <div className={styles.card} key={card.id}>
-          <div className={styles.imageContainer}>
-            <img
-              src={card.image}
-              alt={card.name}
-              className={styles.image}
-              onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)} // Navigate on image click
-            />
-          </div>
-
-          <div className={styles.details}>
-            {/* Name clickable to navigate to ProductDetails */}
-            <span
-              className={styles.name}
-              onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)}
-            >
-              {card.name}
-            </span>
-
-            {/* Price clickable to navigate to ProductDetails */}
-            <span
-              className={styles.price}
-              onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)}
-            >
-              {card.price}
-            </span>
-          </div>
-
-          {/* Actions container */}
-          <div className={styles.actions}>
-            <div className={styles.iconContainer}>
-              <FaHeart className={styles.icon} onClick={handleNavigateToFavorites} />
+    <div>
+      <h1 className={styles.heading}>Best Seller</h1>
+      
+      <div className={styles.cardContainer}>
+        {cardData.map((card) => (
+          <div className={styles.card} key={card.id}>
+            <div className={styles.imageContainer}>
+              <img
+                src={card.image}
+                alt={card.name}
+                className={styles.image}
+                onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)} // Navigate to ProductDetails
+              />
+              <div className={styles.favoriteIconContainer}>
+                <FaHeart 
+                  className={styles.favoriteIcon} 
+                  onClick={() => handleFavorite(card.id)} 
+                />
+              </div>
             </div>
 
-            <div className={styles.iconContainer}>
-              <FaCartPlus className={styles.icon} onClick={handleNavigateToAddToCart} />
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
+           
+           
+           
+ <div className={styles.details}>
+  {/* Name clickable to navigate to ProductDetails */}
+  <span
+    className={styles.name}
+    onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)}
+  >
+    {card.name}
+  </span>
+
+  {/* Add to Cart Button - next to Name */}
+  <button
+    className={styles.addToCartButton}
+    onClick={() => handleNavigateToAddToCart(card.id)}
+  >
+    Add to Cart
+  </button>
+
+  {/* Price */}
+  <span className={styles.price}>
+    {card.price}
+  </span>
+</div>
+ </div>
+        ))}
+ </div>
+  </div>
   );
 };
 
