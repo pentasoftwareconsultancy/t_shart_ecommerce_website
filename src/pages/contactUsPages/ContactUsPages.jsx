@@ -5,7 +5,7 @@ function ContactUsPages() {
   return (
     <div>
       <Contact/>
-      hii
+     
     </div>
   )
 }
