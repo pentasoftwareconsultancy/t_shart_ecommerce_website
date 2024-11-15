@@ -14,7 +14,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
   gap: 30px; /* Adjusted gap between items */
-  padding: 20px 20px; /* Padding to prevent overflow */
+  padding: 30px 30px; /* Padding to prevent overflow */
   background-color: whitesmoke;
   justify-items: center;
   padding-bottom: 40px;
@@ -26,11 +26,11 @@
 
 .card {
   background-color: white;
-  border-radius: 15px; /* Rounded corners for the card */
+  border-radius: 20px; /* Rounded corners for the card */
   overflow: hidden;
-  height: 270px; /* Adjusted card height */
+  height: 250px; /* Adjusted card height */
   width: 230px; /* Reduced width for a more compact design */
-  box-shadow: 0 4px 8px rgba(54, 54, 54, 0.1);
+  box-shadow: 0 4px 8px rgba(46, 45, 45, 0.1);
   transition: box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -46,13 +46,13 @@
 .imageContainer {
   width: 100%;
   height: 200px; /* Adjusted height of the image container */
-  padding: 0;
+  padding:10;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative; /* Needed for positioning the favorite icon */
-  border-radius: 15px; /* Rounded corners for the image container */
+  border-radius: 18px; /* Rounded corners for the image container */
 }
 
 .image {
@@ -64,19 +64,20 @@
 
 .favoriteIconContainer {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: white;
-  border-radius: 50%;
-  padding: 5px;
+  top: 5px;
+  right: 3px;
+  
+  border-radius: 100%;
+  padding: 3px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
 .favoriteIcon {
   font-size: 1.5em;
-  color: #bd0505; /* Red color for the heart */
+  color: white; /* Red color for the heart */
 }
+
 
 /* Updated styles for the details section */
 .details {
@@ -96,18 +97,18 @@
   padding: 0;  /* No padding */
 }
 
-.name:hover {
+/* .name:hover {
   background-color: rgb(218, 216, 216);
   border-radius: 10px;
   padding: 5px 5px;
-}
+} */
 
 .addToCartButton {
   background-color: #007bff;
   color: white;
   padding: 8px 15px; /* Adjusted padding for a smaller button */
   font-size: 14px; /* Slightly smaller font size */
-  border-radius: 5px;
+  border-radius: 15px;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -121,15 +122,15 @@
   font-size: 18px;
   color: black;
   font-weight: bolder;
-  /* cursor: pointer; */
+  cursor: pointer;
   margin-top: 5px;  /* Adds space directly below name and button */
 }
 
-.price:hover {
+/* .price:hover {
   background-color: rgb(218, 216, 216);
   border-radius: 10px;
   padding: 2px 5px;
-}
+} */
 
 @media (max-width: 1200px) {
   .cardContainer {

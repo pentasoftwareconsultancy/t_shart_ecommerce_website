@@ -38,6 +38,8 @@ function App() {
         <Route path="/Forgotpassword" element={<ForgotpasswordPages />} />
         <Route path="/Register" element={<RegisterPages/>}/>
         <Route path="/login" element={<LoginPage />} />
+
+  
       </Routes>
       
     </>
