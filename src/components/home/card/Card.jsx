@@ -17,7 +17,7 @@ const cardData = [
   { id: "card-7", image: image2, name: "Brand Logo 7", price: "$700.00" },
   { id: "card-8", image: image1, name: "Brand Logo 8", price: "$800.00" },
   { id: "card-9", image: image2, name: "Brand Logo 9", price: "$900.00" },
-  { id: "card-10", image: image3,name: "Brand Logo 10", price: "$1000.00" },
+  { id: "card-10", image: image3, name: "Brand Logo 10", price: "$1000.00" },
 ];
 
 const CardsGrid = () => {
@@ -50,45 +50,47 @@ const CardsGrid = () => {
                 src={card.image}
                 alt={card.name}
                 className={styles.image}
-                onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)} // Navigate to ProductDetails
+                onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)}
               />
+
+              {/* Favorite Icon */}
               <div className={styles.favoriteIconContainer}>
-                <FaHeart 
-                  className={styles.favoriteIcon} 
-                  onClick={() => handleFavorite(card.id)} 
+                <FaHeart
+                  className={styles.favoriteIcon}
+                  onClick={() => handleFavorite(card.id)} // Navigate to favorites page when clicked
                 />
               </div>
             </div>
 
-           
-           
-           
- <div className={styles.details}>
-  {/* Name clickable to navigate to ProductDetails */}
-  <span
-    className={styles.name}
-    onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)}
-  >
-    {card.name}
-  </span>
+            <div className={styles.details}>
+              {/* Name clickable to navigate to ProductDetails */}
+              <span
+                className={styles.name}
+                onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)}
+              >
+                {card.name}
+              </span>
 
-  {/* Add to Cart Button - next to Name */}
-  <button
-    className={styles.addToCartButton}
-    onClick={() => handleNavigateToAddToCart(card.id)}
-  >
-    Add to Cart
-  </button>
+              {/* Add to Cart Button - aligned to the right */}
+              <button
+                className={styles.addToCartButton}
+                 onClick={() => navigate('/add-to-cart', { state: { id: card.id, image: card.image, name: card.name, price: card.price } })}
+              >
+                 Add to Cart
+              </button>
+            </div>
 
-  {/* Price */}
-  <span className={styles.price}>
-    {card.price}
-  </span>
-</div>
- </div>
+            {/* Price - directly below name */}
+            <span
+              className={styles.price}
+              onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)} // Navigate to ProductDetails when clicked
+            >
+              {card.price}
+            </span>
+          </div>
         ))}
- </div>
-  </div>
+      </div>
+    </div>
   );
 };
 
