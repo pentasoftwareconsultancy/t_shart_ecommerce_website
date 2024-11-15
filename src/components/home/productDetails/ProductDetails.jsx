@@ -1,23 +1,22 @@
-// ProductDetails.jsx
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from './Product.module.css'; // Ensure you create this CSS module for styling
 
 const ProductDetails = () => {
   const location = useLocation();
-  const { image, name, price } = location.state; // Retrieve the data passed from the Card component
+  const { id, image, name, price } = location.state; // Retrieve the data passed from the Card component
 
   return (
     <div className={styles.productDetailsContainer}>
-      {/* Left side - Product Image */}
       <div className={styles.imageContainer}>
         <img src={image} alt={name} className={styles.productImage} />
       </div>
 
-      {/* Right side - Product details (Gender, Size, Color) */}
       <div className={styles.detailsContainer}>
         <h2>{name}</h2>
         <p>{price}</p>
+
+        {/* More product details */}
 
         <div className={styles.genderSelection}>
           <h3>Gender</h3>
@@ -47,6 +46,7 @@ const ProductDetails = () => {
             <button className={styles.selectionButton} style={{ backgroundColor: 'yellow' }}></button>
           </div>
         </div>
+
       </div>
     </div>
   );

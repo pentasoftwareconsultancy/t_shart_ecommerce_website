@@ -32,10 +32,10 @@ const Navbar = () => {
           {collectionsOpen && (
             <ul className={styles.dropdownMenu}>
               <li>
-                <Link to="/collections/shirts">Shirts</Link>
+                <Link to="/shirts">Shirts</Link>
               </li>
               <li>
-                <Link to="/collections/caps">Caps</Link>
+                <Link to="/caps">Caps</Link>
               </li>
             </ul>
           )}

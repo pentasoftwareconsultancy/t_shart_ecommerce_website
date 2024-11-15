@@ -2,6 +2,8 @@
   padding: 50px 0;
   background-color: #f4f4f4;
   text-align: center;
+  padding-bottom: 30px;
+  
 }
 
 .sliderContainer {
@@ -10,6 +12,7 @@
   gap: 20px;
   padding-left: 30px;
   padding-right: 30px;
+  padding-top: 40px;
 }
 
 .sliderWrapper {
