@@ -73,7 +73,7 @@ const Navbar = () => {
             <ul className={styles.profileDropdownMenu}>
               <li>Wishlist</li>
               <li>Cart</li>
-              <li>Login</li>
+              <li><Link to="/login">Login</Link></li>
             </ul>
           )}
         </div>

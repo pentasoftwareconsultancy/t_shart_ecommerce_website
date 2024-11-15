@@ -132,6 +132,10 @@
 .searchInput:focus {
   border-color: #007bff;
 }
+.profileDropdownMenu li{
+  color: white;
+  text-decoration: none;
+}
 /* Default link style */
 .navLinks a {
   color: white; /* Set your desired default color */
@@ -173,7 +177,9 @@
   }
 
   .menuToggle {
+    width: 50px;
     display: flex;
+    margin-right: 50px;
   }
 
   .icons {
@@ -185,3 +191,13 @@
    width: 20px;
   }
 }
+
+
+
+
+/* Link Styling */
+.profileDropdownMenu li a {
+  text-decoration: none;
+  color: inherit; /* Inherit text color from li */
+}
+
