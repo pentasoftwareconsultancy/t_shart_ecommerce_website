@@ -6,11 +6,9 @@ import AboutPage from "./pages/aboutusPages/AboutPage";
 import TshartPages from "./pages/tshartPages/TshartPages";
 import CapPages from "./pages/capPages/CapPages";
 import Navbar from "./components/navbar/Navbar";
-<<<<<<< HEAD
 import Login from "./components/profile/login/Login";
-=======
 import Tshart from "./components/tshart/Tshart";
->>>>>>> 76c0ccfbea596cd851b2363deb2990fff7ea18de
+
 // import Contact from "./components/contact/Contact";
 import CardsGrid from "./components/home/card/Card"; // Import your Card component
 import ProductDetails from "./components/home/productDetails/ProductDetails"; // Import ProductDetails component
@@ -37,16 +35,13 @@ function App() {
         <Route path="/contact" element={<ContactUsPages />} />
         <Route path="/" element={<CardsGrid />} />
         <Route path="/product/:id" element={<ProductDetails />} />
-<<<<<<< HEAD
         {/* <Route path="/profile" element={<ProfilePage />} /> */}
         <Route path="/Forgotpassword" element={<ForgotpasswordPages />} />
         <Route path="/Register" element={<RegisterPages/>}/>
         <Route path="/login" element={<LoginPage />} />
-=======
         
 
        
->>>>>>> 76c0ccfbea596cd851b2363deb2990fff7ea18de
       </Routes>
       
     </>
