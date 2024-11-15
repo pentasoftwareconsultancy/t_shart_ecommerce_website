@@ -23,7 +23,7 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/aboutus">About</Link>
         </li>
         <li className={styles.dropdown}>
           <a onClick={toggleCollections} className={styles.dropdownToggle}>
@@ -31,7 +31,7 @@ const Navbar = () => {
           </a>
           {collectionsOpen && (
             <ul className={styles.dropdownMenu}>
-              <li>
+              <li >
                 <Link to="/shirts">Shirts</Link>
               </li>
               <li>
@@ -68,7 +68,7 @@ const Navbar = () => {
         <FaHeart className={styles.icon} />
         <FaShoppingCart className={styles.icon} />
         <div className={styles.dropdown}>
-          <FaUserCircle className={styles.icon} onClick={toggleProfile} />
+          <FaUserCircle className={styles.icons} onClick={toggleProfile} />
           {profileOpen && (
             <ul className={styles.profileDropdownMenu}>
               <li>Wishlist</li>

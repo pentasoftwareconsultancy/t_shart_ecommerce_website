@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Forgotpassword.module.css";
 
 const Forgotpassword = () => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("sonaliekhande12@gmail.com"); // Default email
   const [otp, setOtp] = useState(["", "", "", ""]); // 4-digit OTP
   const [statusMessage, setStatusMessage] = useState("");
   const [isOtpSent, setIsOtpSent] = useState(false);
@@ -51,6 +51,7 @@ const Forgotpassword = () => {
   const handleSubmitOtp = (e) => {
     e.preventDefault();
     console.log("OTP Submitted:", otp.join(""));
+    setStatusMessage("OTP Submitted!"); // Feedback to the user
   };
 
   return (
@@ -62,30 +63,33 @@ const Forgotpassword = () => {
             ? "Enter the 4-digit OTP sent to your email."
             : "Enter your email address below, and we'll send you an OTP to reset your password."}
         </p>
-        
+
         {/* Email Form */}
-        {!isOtpSent ? (
-          <form className={styles.form} onSubmit={handleSubmitEmail}>
-            <div className={styles.inputGroup}>
-              <label htmlFor="email">Email Address</label>
-              <input
-                type="email"
-                id="email"
-                className={styles.input}
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
+        <form className={styles.form} onSubmit={handleSubmitEmail}>
+          <div className={styles.inputGroup}>
+            <label htmlFor="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              className={styles.input}
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              disabled={isOtpSent} // Disable input after OTP is sent
+            />
+          </div>
+          {!isOtpSent && (
             <div className={styles.buttonGroup}>
               <button type="submit" className={styles.submitButton}>
                 Send OTP
               </button>
             </div>
-          </form>
-        ) : (
-          /* OTP Form */
+          )}
+        </form>
+
+        {/* OTP Input Fields */}
+        {isOtpSent && (
           <form className={styles.form} onSubmit={handleSubmitOtp}>
             <div className={styles.otpContainer}>
               {otp.map((digit, index) => (

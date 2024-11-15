@@ -3,77 +3,85 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f4f4f9;
   padding: 20px;
+  background-color: #f9f9f9;
 }
 
-.formWrapper {
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 10px;
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  height: 80vh;
+  max-width: 1000px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
+}
+
+.imageSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f0f0;
+}
+
+.imageWrapper {
+  display: block;
   width: 100%;
+  height: 100%;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.formSection {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .title {
-  font-size: 1.8rem;
+  font-size: 32px;
+  font-weight: bold;
   margin-bottom: 20px;
   text-align: center;
-  color: #333;
 }
 
 .form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
 .inputGroup {
-  margin-bottom: 15px;
-}
-
-.inputGroup label {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 5px;
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .input {
-  width: 95%;
   padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-}
-
-.input:focus {
-  border-color: #007bff;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .forgotPassword {
   text-align: right;
-  margin-bottom: 20px;
-}
-
-.forgotPassword a {
-  font-size: 0.9rem;
-  color: #007bff;
-  text-decoration: none;
-}
-
-.forgotPassword a:hover {
-  text-decoration: underline;
+  font-size: 14px;
 }
 
 .button {
-  padding: 10px 15px;
-  font-size: 1rem;
-  color: #fff;
   background-color: #007bff;
+  color: white;
   border: none;
-  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -83,12 +91,7 @@
 
 .createAccount {
   text-align: center;
-  margin-top: 15px;
-}
-
-.createAccount p {
-  font-size: 0.9rem;
-  color: #555;
+  font-size: 14px;
 }
 
 .createAccount a {
@@ -100,17 +103,51 @@
   text-decoration: underline;
 }
 
-/* Responsive Styles */
-@media (max-width: 480px) {
-  .formWrapper {
+/* Responsive Styles for Medium Screens */
+@media (max-width: 768px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .imageWrapper img {
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+  }
+
+  .formSection {
     padding: 20px;
   }
 
   .title {
-    font-size: 1.5rem;
+    font-size: 28px;
+  }
+}
+
+/* Responsive Styles for Small Screens */
+@media (max-width: 480px) {
+  .imageWrapper img {
+    width: 100%;
+    max-height: 200px;
+  }
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .form {
+    gap: 10px;
+  }
+
+  .input {
+    padding: 8px;
+    font-size: 14px;
   }
 
   .button {
-    font-size: 0.9rem;
+    padding: 8px;
+    font-size: 14px;
   }
 }

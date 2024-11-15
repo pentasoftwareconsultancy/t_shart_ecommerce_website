@@ -2,15 +2,12 @@ import { Routes, Route } from "react-router-dom";
 
 
 import HomePages from "./pages/homePage/HomePages";
-import AboutPage from "./pages/aboutusPages/AboutPage";
+import AboutPage from "./pages/aboutusPages/AboutUsPage";
 import TshartPages from "./pages/tshartPages/TshartPages";
 import CapPages from "./pages/capPages/CapPages";
 import Navbar from "./components/navbar/Navbar";
-<<<<<<< HEAD
 import Login from "./components/profile/login/Login";
-=======
 import Tshart from "./components/tshart/Tshart";
->>>>>>> 76c0ccfbea596cd851b2363deb2990fff7ea18de
 // import Contact from "./components/contact/Contact";
 import CardsGrid from "./components/home/card/Card"; // Import your Card component
 import ProductDetails from "./components/home/productDetails/ProductDetails"; // Import ProductDetails component
@@ -31,22 +28,16 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePages />} />
-        <Route path="/aboutus" element={<AboutPage />} />
+        <Route path="/aboutUs" element={<AboutPage />} />
         <Route path="/shirts" element={<TshartPages />} />
         <Route path="/cap" element={<CapPages />} />
         <Route path="/contact" element={<ContactUsPages />} />
         <Route path="/" element={<CardsGrid />} />
         <Route path="/product/:id" element={<ProductDetails />} />
-<<<<<<< HEAD
         {/* <Route path="/profile" element={<ProfilePage />} /> */}
         <Route path="/Forgotpassword" element={<ForgotpasswordPages />} />
         <Route path="/Register" element={<RegisterPages/>}/>
         <Route path="/login" element={<LoginPage />} />
-=======
-        
-
-       
->>>>>>> 76c0ccfbea596cd851b2363deb2990fff7ea18de
       </Routes>
       
     </>
