@@ -1,91 +1,83 @@
 import React, { useState } from "react";
 import styles from "./Hero.module.css";
-import images1 from './images/tshirt.jpg';
-import images2 from './images/logo2.jpeg';
-// import images3 from './images/shirt2.jpg';
+import logoimg from './images/logo1.jpeg'; // Logo image
+import tshirtImage from './images/tshirt.jpg';
 
 const Hero = () => {
-  // State for slider 1 and slider 2
-  const [currentImage1, setCurrentImage1] = useState(0);
-  const [currentImage2, setCurrentImage2] = useState(0);
+  // State for current image in the slider
+  const [currentImage, setCurrentImage] = useState(0);
 
-  // Slider images - now we have a single image per slide for each slider
-  const sliderImages1 = [
-    images1,
-    images2,
-    // images3, // Uncomment and add more images as needed
+  // State for selected color filter
+  const [colorFilter, setColorFilter] = useState("none");
+
+  // Slider images - include logo first, T-shirt second
+  const sliderImages = [
+    logoimg,
+    tshirtImage
   ];
 
-  const sliderImages2 = [
-    images1,
-    images2,
-    // images3, // Uncomment and add more images as needed
+  // Color options for the T-shirt
+  const colorOptions = [
+    { name: "Red", filter: "hue-rotate(0deg)" },
+    { name: "Blue", filter: "hue-rotate(240deg)" },
+    { name: "Green", filter: "hue-rotate(120deg)" },
+    { name: "Black", filter: "brightness(0)" },
   ];
 
-  // Function to go to the next image for Slider 1
-  const goToNextImage1 = () => {
-    setCurrentImage1((prev) => (prev + 1) % sliderImages1.length);
+  // Function to go to the next image in the slider
+  const goToNextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % sliderImages.length);
   };
 
-  // Function to go to the previous image for Slider 1
-  const goToPrevImage1 = () => {
-    setCurrentImage1((prev) => (prev - 1 + sliderImages1.length) % sliderImages1.length);
+  // Function to go to the previous image in the slider
+  const goToPrevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + sliderImages.length) % sliderImages.length);
   };
 
-  // Function to go to the next image for Slider 2
-  const goToNextImage2 = () => {
-    setCurrentImage2((prev) => (prev + 1) % sliderImages2.length);
-  };
-
-  // Function to go to the previous image for Slider 2
-  const goToPrevImage2 = () => {
-    setCurrentImage2((prev) => (prev - 1 + sliderImages2.length) % sliderImages2.length);
+  // Function to handle color change
+  const handleColorChange = (filter) => {
+    setColorFilter(filter);
   };
 
   return (
     <section className={styles.heroSection}>
       <div className={styles.sliderContainer}>
-        {/* Slider 1 */}
         <div className={styles.sliderWrapper}>
           <div className={styles.sliderImageContainer}>
-            {/* Display one image at a time */}
+            {/* Display the image with the selected color filter only for the T-shirt */}
             <img
-              src={sliderImages1[currentImage1]}
-              alt={`Slider 1 - Image ${currentImage1 + 1}`}
+              src={sliderImages[currentImage]}
+              alt={`Slider Image ${currentImage + 1}`}
               className={styles.shirtImage}
+              style={currentImage === 1 ? { filter: colorFilter } : {}}
             />
           </div>
-          {/* Arrow buttons for Slider 1 */}
+          {/* Arrow buttons for navigation */}
           <div className={styles.arrowButtons}>
-            <button onClick={goToPrevImage1} className={styles.arrowBtn}>
-              &lt; {/* Left Arrow */}
+            <button onClick={goToPrevImage} className={styles.arrowBtn}>
+              &lt;
             </button>
-            <button onClick={goToNextImage1} className={styles.arrowBtn}>
-              &gt; {/* Right Arrow */}
+            <button onClick={goToNextImage} className={styles.arrowBtn}>
+              &gt;
             </button>
           </div>
         </div>
 
-        {/* Slider 2 */}
-        <div className={styles.sliderWrapper}>
-          <div className={styles.sliderImageContainer}>
-            {/* Display one image at a time */}
-            <img
-              src={sliderImages2[currentImage2]}
-              alt={`Slider 2 - Image ${currentImage2 + 1}`}
-              className={styles.shirtImage}
-            />
+        {/* Display color buttons only if T-shirt is shown */}
+        {currentImage === 1 && (
+          <div className={styles.colorButtonsContainer}>
+            {colorOptions.map((option, index) => (
+              <button
+                key={index}
+                onClick={() => handleColorChange(option.filter)}
+                style={{ backgroundColor: option.name.toLowerCase() }}
+                className={styles.colorButton}
+              >
+                {option.name}
+              </button>
+            ))}
           </div>
-          {/* Arrow buttons for Slider 2 */}
-          <div className={styles.arrowButtons}>
-            <button onClick={goToPrevImage2} className={styles.arrowBtn}>
-              &lt; {/* Left Arrow */}
-            </button>
-            <button onClick={goToNextImage2} className={styles.arrowBtn}>
-              &gt; {/* Right Arrow */}
-            </button>
-          </div>
-        </div>
+        )}
       </div>
     </section>
   );

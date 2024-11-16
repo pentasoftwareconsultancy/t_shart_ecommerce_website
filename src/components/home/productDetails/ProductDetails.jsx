@@ -1,10 +1,43 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './Product.module.css'; // Ensure you create this CSS module for styling
 
 const ProductDetails = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { id, image, name, price } = location.state; // Retrieve the data passed from the Card component
+
+  // Local state to store the selected product in the cart
+  const [cart, setCart] = useState(() => {
+    // Retrieve cart items from localStorage if they exist
+    const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
+    return savedCart;
+  });
+
+  // Handle adding product to the cart
+  const handleAddToCart = () => {
+    // Check if the product is already in the cart
+    const existingProductIndex = cart.findIndex(item => item.id === id);
+
+    if (existingProductIndex !== -1) {
+      // If the product already exists, update the quantity (for example)
+      const updatedCart = [...cart];
+      updatedCart[existingProductIndex].quantity += 1;
+      setCart(updatedCart);
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+    } else {
+      // If the product doesn't exist, add it to the cart with quantity 1
+      const updatedCart = [
+        ...cart,
+        { id, image, name, price, quantity: 1 }
+      ];
+      setCart(updatedCart);
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+    }
+
+    // Navigate to the cart page after adding the product
+    navigate('/cart');
+  };
 
   return (
     <div className={styles.productDetailsContainer}>
@@ -47,6 +80,10 @@ const ProductDetails = () => {
           </div>
         </div>
 
+        {/* Add to Cart Button */}
+        <div className={styles.addToCartContainer}>
+          <button className={styles.addToCartButton} onClick={handleAddToCart}>Add to Cart</button>
+        </div>
       </div>
     </div>
   );
