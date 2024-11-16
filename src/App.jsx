@@ -6,6 +6,7 @@ import AboutPage from "./pages/aboutusPages/AboutUsPage";
 import TshartPages from "./pages/tshartPages/TshartPages";
 import CapPages from "./pages/capPages/CapPages";
 import Navbar from "./components/navbar/Navbar";
+import CartPages from "./pages/cartPages/CartPages";
 import Login from "./components/profile/login/Login";
 import Tshart from "./components/tshart/Tshart";
 // import Contact from "./components/contact/Contact";
@@ -38,6 +39,7 @@ function App() {
         <Route path="/Forgotpassword" element={<ForgotpasswordPages />} />
         <Route path="/Register" element={<RegisterPages/>}/>
         <Route path="/login" element={<LoginPage />} />
+        <Route path = "/cart" element={<CartPages />} />
 
   
       </Routes>
