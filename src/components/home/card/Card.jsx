@@ -81,7 +81,7 @@ const CardsGrid = () => {
               {/* Add to Cart Button - aligned to the right */}
               <button
                 className={styles.addToCartButton}
-                 onClick={() => navigate('/add-to-cart', { state: { id: card.id, image: card.image, name: card.name, price: card.price } })}
+                 onClick={() => navigate('/cart', { state: { id: card.id, image: card.image, name: card.name, price: card.price } })}
               >
                  Add to Cart
               </button>

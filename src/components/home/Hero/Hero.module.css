@@ -1,59 +1,72 @@
 .heroSection {
-  padding: 50px 0;
-  background-color: #f4f4f4;
-  text-align: center;
-  padding-bottom: 30px;
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sliderContainer {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 40px;
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
 }
 
 .sliderWrapper {
-  width: 45%;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.sliderImageContainer {
+  position: relative;
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
-  padding-left: 30px;
-  padding-right: 30px;
 }
 
-.shirtImage {
-  width: 100%; /* Image takes up full width of its container */
-  max-width: 400px; /* Max width to control image size */
-  object-fit: cover; /* Maintain aspect ratio */
-  border-radius: 5px;
+.sliderImageContainer img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  transition: filter 0.3s ease-in-out;
 }
 
 .arrowButtons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  transform: translateY(-50%);
 }
 
 .arrowBtn {
-  background-color: transparent;
+  background: rgba(0, 0, 0, 0.5);
   border: none;
-  cursor: pointer;
-  font-size: 24px;
+  color: white;
   padding: 10px;
-  color: #333;
-  transition: color 0.3s ease;
+  cursor: pointer;
+  font-size: 18px;
 }
 
 .arrowBtn:hover {
-  color: #007bff;
+  background: rgba(0, 0, 0, 0.8);
 }
+
+.colorButtonsContainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.colorButton {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  outline: none;
+}
+
+.colorButton:hover {
+  transform: scale(1.1);
+}
+
+/* Ensure brightness and visibility */
+/* .shirtImage {
+  filter: brightness(5.5) saturate(4.2); }/* Increase base brightness and saturation */
+ 

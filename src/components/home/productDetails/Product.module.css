@@ -76,6 +76,26 @@ h3 {
   border-radius: 100px;
 }
 
+.addToCartContainer {
+  margin-top: 20px;
+}
+
+.addToCartButton {
+  background-color: rgb(49, 49, 230);
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 20%;
+  text-align: center;
+}
+
+.addToCartButton:hover {
+  background-color: #828ce4;
+}
+
 @media screen {
   
 }
