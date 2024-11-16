@@ -9,7 +9,6 @@ import Navbar from "./components/navbar/Navbar";
 import CartPages from "./pages/cartPages/CartPages";
 import Login from "./components/profile/login/Login";
 import Tshart from "./components/tshart/Tshart";
-// import Contact from "./components/contact/Contact";
 import CardsGrid from "./components/home/card/Card"; // Import your Card component
 import ProductDetails from "./components/home/productDetails/ProductDetails"; // Import ProductDetails component
 
@@ -21,6 +20,7 @@ import Forgotpassword from "./pages/forgotpasswordPages/ForgotpasswordPages";
 import ForgotpasswordPages from "./pages/forgotpasswordPages/ForgotpasswordPages";
 import RegisterPages from "./pages/registerPages/RegisterPages";
 import Footer from "./components/Footer/Footer";
+import Whatsapp from "./components/whatsapp/Whatsapp";
 
 
 function App() {
@@ -36,13 +36,13 @@ function App() {
         <Route path="/contact" element={<ContactUsPages />} />
         <Route path="/" element={<CardsGrid />} />
         <Route path="/product/:id" element={<ProductDetails />} />
-        {/* <Route path="/profile" element={<ProfilePage />} /> */}
         <Route path="/Forgotpassword" element={<ForgotpasswordPages />} />
         <Route path="/Register" element={<RegisterPages/>}/>
         <Route path="/login" element={<LoginPage />} />
         <Route path = "/cart" element={<CartPages />} />
-
+          
       </Routes>
+      <Whatsapp/>
       <Footer/>
     </>
   );

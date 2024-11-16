@@ -1,0 +1,45 @@
+.whatsappIcon {
+    position: fixed; /* Keeps the icon in the same place */
+    right: 10px; /* Fixed on the right side of the screen */
+    bottom: 20px; /* Fixed slightly above the bottom of the screen */
+    z-index: 1000; /* Ensures it stays above other content */
+    animation: fadeIn 1s ease forwards;
+    margin-right: 20px;
+  }
+  
+  .whatsappLink {
+    background-color: #25d366; /* WhatsApp green */
+    color: white;
+    border-radius: 50%; /* Circular shape */
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds a shadow */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    text-decoration: none; /* Removes underline on the link */
+  }
+  
+  .whatsappLink:hover {
+    background-color: #128C7E; /* Darker green on hover */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+  }
+  
+  @media (max-width: 768px) {
+    .whatsappIcon {
+      right: 5px; /* Adjust for smaller screens */
+      bottom: 15px;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

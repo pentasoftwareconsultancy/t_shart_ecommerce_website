@@ -1,113 +1,133 @@
 /* General Footer Styles */
-.contanar{
-    color: white;
+.contanar {
+  color: white;
 }
+
 .footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #f5f2f2;
-    background-color: #333;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-   height: 250px;
+  display: flex;
+  flex-direction: column; /* Stacked layout for mobile view */
+  align-items: center;
+  color: #f5f2f2;
+  background-color: #333;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  height: auto; /* Adjust height dynamically */
+}
+
+/* Section Styles */
+.section {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.section h4 {
+  font-size: 25px;
+  margin-bottom: 10px;
+  color: #fbfbfb;
+  font-weight: bold;
+}
+
+.section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.section ul li {
+  margin: 5px 0;
+  color: #f8f3f3;
+  font-size: 20px;
+}
+
+.section ul li a {
+  text-decoration: none; /* Removes underline */
+  color: #f5f3f3; /* Default link color */
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.section ul li a:hover {
+  color: #007bff; /* Hover color */
+}
+
+/* Input Styles */
+.inputcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Adjusted for mobile */
+  font-size: 18px; /* Smaller font for mobile */
+}
+
+.inputcontainer input {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 90%; /* More space on mobile */
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.inputcontainer button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.inputcontainer button:hover {
+  background-color: #0056b3;
+}
+
+/* Social Media Styles */
+.socialicons {
+  display: flex;
+  justify-content: center; /* Centered for mobile */
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.socialicons a {
+  color: #fefcfc;
+  transition: color 0.3s ease;
+}
+
+.socialicons a:hover {
+  color: #007bff; /* Change this to your desired hover color */
+}
+
+/* Payment Method Styles */
+.payment-methods img {
+  width: 40px;
+  height: auto;
+  margin: 5px;
+}
+
+/* Responsive Design for Desktop */
+@media (min-width: 768px) {
+  .footer {
+    flex-direction: row; /* Side-by-side layout for desktop */
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px 50px; /* Increased padding for desktop */
   }
-  
-  /* Section Styles */
+
   .section {
-    margin-bottom: 20px;
-    text-align: center;
+    margin-bottom: 0;
+    text-align: left; /* Left-aligned text for desktop */
   }
-  
-  .section h4 {
-    font-size: 25px;
-    margin-bottom: 10px;
-    color: #fbfbfb;
-    font-weight: bold;
-  }
-  
-  .section ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .section ul li {
-    margin: 5px 0;
-    color: #f8f3f3;
-    font-size: 20px;
-  }
-  .section ul li a {
-    text-decoration: none; /* Removes underline */
-    color: #f5f3f3; /* Default color for the link */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
-  }
-  .section ul li a:hover {
-    color: #007bff; /* Change color on hover */
-  }
-  
-  /* Input Styles */
-  .inputcontainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-    font-size: 30px;
-  }
-  
-  .inputcontainer input {
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 80%;
-    max-width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 80px;
-  }
-  
-  /* Social Media Styles */
+
   .socialicons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
+    justify-content: flex-start; /* Align icons to the left */
   }
-  
-  .socialicons a {
-    color: #fefcfc;
-    transition: color 0.3s ease;
+
+  .inputcontainer {
+    align-items: flex-start; /* Left-align input and button */
+    margin-top: 0; /* Remove extra margin */
   }
-  
-  .socialicons a:hover {
-    color: #007bff; /* Change this to your desired hover color */
+
+  .inputcontainer input {
+    width: 300px; /* Fixed width for desktop */
   }
-  
-  /* Payment Method Styles */
-  .payment-methods img {
-    width: 40px;
-    height: auto;
-    margin: 5px;
-  }
-  
-  /* Responsive Design */
-  @media (min-width: 768px) {
-    .footer {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 30px 50px;
-    }
-  
-    .section {
-      margin-bottom: 0;
-      text-align: left;
-    }
-  
-    .socialicons {
-      justify-content: flex-start;
-    }
-  
-    .inputcontainer {
-      align-items: flex-start;
-    }
-  }
-  
+}

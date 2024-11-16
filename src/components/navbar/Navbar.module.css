@@ -75,7 +75,8 @@ display: block;
  visibility: visible;
 }
 .profileDropdownMenu {
-  margin-top: 15px;
+  margin-top: 0px;
+  padding-top: 5px;
   box-shadow: 0 4px 8px  rgba(0, 0, 0, 0.2) ;
   border-radius: 10px;
   position: absolute;
@@ -98,12 +99,14 @@ display: block;
 }
 
 .icons {
+  margin-top: 13px;
   display: flex;
   gap: 1.5rem;
+ 
 }
 
 .iconss {
-  padding-bottom: 20px;
+ 
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -212,6 +215,9 @@ display: block;
   .icon {
     display: none;
   }
+  .icons{
+    margin-top: 13px;
+  }
   .searchBar {
     flex: 1;
   }
@@ -253,9 +259,9 @@ display: block;
   .icon {
     display: none;
   }
-  /* .icons{
-    margin-right: 10px;
-  } */
+  .icons{
+    margin-top: 13px;
+  }
   .searchBar {
     flex: 1;
   }
