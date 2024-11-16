@@ -19,6 +19,7 @@ import LoginPage from "./pages/loginPage/LoginPage";
 import Forgotpassword from "./pages/forgotpasswordPages/ForgotpasswordPages";
 import ForgotpasswordPages from "./pages/forgotpasswordPages/ForgotpasswordPages";
 import RegisterPages from "./pages/registerPages/RegisterPages";
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
@@ -39,9 +40,8 @@ function App() {
         <Route path="/Register" element={<RegisterPages/>}/>
         <Route path="/login" element={<LoginPage />} />
 
-  
       </Routes>
-      
+      <Footer/>
     </>
   );
 }

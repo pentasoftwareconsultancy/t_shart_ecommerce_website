@@ -5,7 +5,7 @@
   align-items: center;
   padding: 1rem 2rem;
   background-color: #333;
-  color: #fff;
+  color: #faf8f8;
   position: relative;
   justify-content: space-between;
   padding: 1rem 2rem;
@@ -45,26 +45,39 @@
 .dropdown {
   position: relative;
 }
+.dropdownMenu li{
+  color: black;
+}
 
 .dropdownMenu {
-  /* margin-left: 50px; */
   position: absolute;
   background-color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   list-style: none;
   border-radius: 10px;
   padding: 1rem;
-  top: 100%;
+  top: 100%; /* Positions the dropdown below the parent */
   left: 0;
-  margin-top: 5px;
+  margin-top: 18px;
   width: 200px;
-  display: none;
+  display: none; /* Hidden by default */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+
+.dropdown a{
+  padding-bottom: 20px;
 }
 
 .dropdown:hover .dropdownMenu {
-  display: block;
+display: block;
+ opacity: 1;
+ visibility: visible;
 }
-
 .profileDropdownMenu {
+  margin-top: 15px;
+  box-shadow: 0 4px 8px  rgba(0, 0, 0, 0.2) ;
+  border-radius: 10px;
   position: absolute;
   background-color: #333;
   list-style: none;
@@ -74,6 +87,11 @@
   width: 200px;
   display: none;
 }
+.dropdown .iconss{
+  padding-bottom: 10px;
+  /* padding-top: 10px; */
+}
+
 
 .dropdown:hover .profileDropdownMenu {
   display: block;
@@ -84,7 +102,8 @@
   gap: 1.5rem;
 }
 
-.icon {
+.iconss {
+  padding-bottom: 20px;
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -135,20 +154,26 @@
   border-color: #007bff;
 }
 .profileDropdownMenu li{
-  color: white;
+  color: rgb(248, 245, 245);
   text-decoration: none;
+}
+.shirt .link{
+  color: #000;
 }
 /* Default link style */
 .navLinks a {
-  color: white; /* Set your desired default color */
+  color: rgb(249, 246, 246); /* Set your desired default color */
   text-decoration: none; /* Remove underline */
+}
+.navLinks li{
+  color: black;
 }
 
 /* Prevent color change on hover */
 .navLinks a:hover,
 .navLinks a:active,
 .navLinks a:visited {
-  color: white; /* Keep the same color on hover, active, or visited */
+  /* Keep the same color on hover, active, or visited */
   text-decoration: none; /* Optional: prevent underline on hover */
 }
 

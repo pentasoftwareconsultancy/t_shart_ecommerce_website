@@ -31,10 +31,10 @@ const Navbar = () => {
           </a>
           {collectionsOpen && (
             <ul className={styles.dropdownMenu}>
-              <li >
+              <li className={styles.shirt} >
                 <Link to="/shirts">Shirts</Link>
               </li>
-              <li>
+              <li className={styles.shirt}>
                 <Link to="/caps">Caps</Link>
               </li>
             </ul>
@@ -68,7 +68,8 @@ const Navbar = () => {
         <FaHeart className={styles.icon} />
         <FaShoppingCart className={styles.icon} />
         <div className={styles.dropdown}>
-          <FaUserCircle className={styles.icons} onClick={toggleProfile} />
+         
+          <FaUserCircle className={styles.iconss} onClick={toggleProfile} />
           {profileOpen && (
             <ul className={styles.profileDropdownMenu}>
               <li>Wishlist</li>

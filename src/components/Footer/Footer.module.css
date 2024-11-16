@@ -1,0 +1,113 @@
+/* General Footer Styles */
+.contanar{
+    color: white;
+}
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #f5f2f2;
+    background-color: #333;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+   height: 250px;
+  }
+  
+  /* Section Styles */
+  .section {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .section h4 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    color: #fbfbfb;
+    font-weight: bold;
+  }
+  
+  .section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .section ul li {
+    margin: 5px 0;
+    color: #f8f3f3;
+    font-size: 20px;
+  }
+  .section ul li a {
+    text-decoration: none; /* Removes underline */
+    color: #f5f3f3; /* Default color for the link */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  .section ul li a:hover {
+    color: #007bff; /* Change color on hover */
+  }
+  
+  /* Input Styles */
+  .inputcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    font-size: 30px;
+  }
+  
+  .inputcontainer input {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 80px;
+  }
+  
+  /* Social Media Styles */
+  .socialicons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .socialicons a {
+    color: #fefcfc;
+    transition: color 0.3s ease;
+  }
+  
+  .socialicons a:hover {
+    color: #007bff; /* Change this to your desired hover color */
+  }
+  
+  /* Payment Method Styles */
+  .payment-methods img {
+    width: 40px;
+    height: auto;
+    margin: 5px;
+  }
+  
+  /* Responsive Design */
+  @media (min-width: 768px) {
+    .footer {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 30px 50px;
+    }
+  
+    .section {
+      margin-bottom: 0;
+      text-align: left;
+    }
+  
+    .socialicons {
+      justify-content: flex-start;
+    }
+  
+    .inputcontainer {
+      align-items: flex-start;
+    }
+  }
+  
