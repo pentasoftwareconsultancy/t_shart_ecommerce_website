@@ -21,13 +21,18 @@ import ForgotpasswordPages from "./pages/forgotpasswordPages/ForgotpasswordPages
 import RegisterPages from "./pages/registerPages/RegisterPages";
 import Footer from "./components/Footer/Footer";
 import Whatsapp from "./components/whatsapp/Whatsapp";
-
-
+import FavoritesPage from "./components/favourite/FavoritesPage";
+import FavoritesProvider from "./components/context/FavoritesContext";
+import CartProvider from "./components/context/CartContext";
+import Cart from "./components/cart/Cart";
 function App() {
   return (
-    <>
+    <FavoritesProvider>
+      <CartProvider>
+    
    
       <Navbar />
+      
       <Routes>
         <Route path="/" element={<HomePages />} />
         <Route path="/aboutUs" element={<AboutPage />} />
@@ -40,11 +45,14 @@ function App() {
         <Route path="/Register" element={<RegisterPages/>}/>
         <Route path="/login" element={<LoginPage />} />
         <Route path = "/cart" element={<CartPages />} />
-          
+
+        <Route path = "/favorites" element={<FavoritesPage />} />  
       </Routes>
       <Whatsapp/>
       <Footer/>
-    </>
+      </CartProvider>
+    </FavoritesProvider>
+ 
   );
 }
 

@@ -55,6 +55,26 @@
     height: 100%; /* Set height to match card height */
     object-fit: cover; /* Ensures image scales correctly without distortion */
   }
+
+  .popupMessage {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 1000;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
   
   .cardName {
     text-align: center;

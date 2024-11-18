@@ -60,6 +60,7 @@
   height: 100%;
   object-fit: cover; /* Ensures the image fits well */
   border-radius: 15px; /* Rounded corners for the image */
+  background-color: antiquewhite;
 }
 
 .favoriteIconContainer {

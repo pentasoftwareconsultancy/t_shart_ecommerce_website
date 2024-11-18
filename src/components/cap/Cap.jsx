@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa'; // Importing the heart icon for favorite
 import styles from './Cap.module.css'; // Import the CSS module for styling
+import { useFavorites } from '../context/FavoritesContext'; // Import FavoritesContext
 import image1 from './logoimg/logo1.jpeg'; // Images
 import image2 from './logoimg/logo2.jpeg';
 import image3 from './logoimg/logo3.jpeg';
@@ -29,6 +30,7 @@ const cardData = [
 
 const Cap = () => {
   const navigate = useNavigate();
+  const { addToFavorites } = useFavorites(); // Access the function to add to favorites
 
   // Handle navigation to ProductDetails page
   const handleNavigateToProductDetails = (id) => {
@@ -38,9 +40,10 @@ const Cap = () => {
     }
   };
 
-  // Handle navigation to favorites page when heart icon is clicked
-  const handleNavigateToFavorites = (id) => {
-    alert(`Added to favorites: ${id}`); // Placeholder action
+  // Handle adding to favorites and navigate to favorites page
+  const handleAddToFavorites = (product) => {
+    addToFavorites(product); // Add the product to favorites
+    navigate('/favorites'); // Redirect to favorites page immediately after adding to favorites
   };
 
   return (
@@ -56,18 +59,26 @@ const Cap = () => {
           <div
             className={styles.card}
             key={card.id}
-            onClick={() => handleNavigateToProductDetails(card.id)}
+            onClick={() => handleNavigateToProductDetails(card.id)} // Navigate to product details when clicked
           >
             <div className={styles.imageContainer}>
-              <img src={card.image} alt={card.id} className={styles.image} />
-              <FaHeart
-                className={styles.favoriteIcon}
-                onClick={(e) => {
-                  e.stopPropagation(); // Prevents triggering the card's onClick event
-                  handleNavigateToFavorites(card.id); // Navigate to the favorites page
-                }}
+              {/* Favorite Icon */}
+              <div className={styles.favoriteIconContainer}>
+                <FaHeart
+                  className={styles.favoriteIcon}
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent the click from triggering card navigation
+                    handleAddToFavorites(card); // Add to favorites and navigate
+                  }}
+                />
+              </div>
+              <img
+                src={card.image}
+                alt={card.name}
+                className={styles.cardImage}
               />
             </div>
+
             <div className={styles.cardName}>{card.name}</div> {/* Card name below the image */}
           </div>
         ))}
