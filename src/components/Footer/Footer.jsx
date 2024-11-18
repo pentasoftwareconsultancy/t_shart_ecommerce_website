@@ -39,21 +39,21 @@ const Footer = () => {
         <ul>
           <li> <Link to="/aboutus">About</Link></li>
           <li><Link to="/contact">Contact</Link></li>
-          <li>FAQ</li>
-          <li>Shipping Policy</li>
-          <li>Return Policy</li>
-          <li>Wholesale</li>
+          <li><Link to="/privacy">Privacy Policy</Link></li>
+          <li><Link to="/terms">Terms & Conditions</Link></li>
+          
         </ul>
       </div>
 
       {/* Community Section */}
       <div className={styles.section}>
-        <h4>COMMUNITY</h4>
+        <h4>Navigation</h4>
         <ul>
-          <li>Affiliates</li>
-          <li>Tag Directory</li>
-          <li>Privacy Policy</li>
-          <li>Terms & Conditions</li>
+          <li> <Link to="/">Home</Link></li>
+          <li><Link to="/aboutus">About</Link></li>
+          <li><Link to="/shirts">Shirt</Link></li>
+          <li><Link to="/caps">Cap</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
         </ul>
       </div>
 

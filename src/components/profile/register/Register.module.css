@@ -63,6 +63,9 @@
   display: flex;
   align-items: center;
 }
+.login{
+  text-align: center;
+}
 
 .toggleButton {
   position: absolute;
@@ -92,6 +95,12 @@
 .button:hover {
   background-color: #0056b3;
 }
+.error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
 
 /* Responsive design */
 @media (max-width: 768px) {

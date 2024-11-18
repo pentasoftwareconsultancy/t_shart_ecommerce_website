@@ -1,0 +1,64 @@
+/* TermsOfUse.module.css */
+
+.container {
+    padding: 20px;
+    padding-left: 200px;
+    max-width: 1200px;
+    margin: 100px;
+    line-height: 1.6;
+    font-family: Arial, sans-serif;
+    text-align: justify;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    color: #555;
+    margin-top: 20px;
+  }
+  
+  p, li {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  ul {
+    margin-left: 20px;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    h2 {
+      font-size: 1.25rem;
+    }
+  
+    p, li {
+      font-size: 0.9rem;
+    }
+  }
+  
+  

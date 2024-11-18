@@ -21,6 +21,8 @@ import ForgotpasswordPages from "./pages/forgotpasswordPages/ForgotpasswordPages
 import RegisterPages from "./pages/registerPages/RegisterPages";
 import Footer from "./components/Footer/Footer";
 import Whatsapp from "./components/whatsapp/Whatsapp";
+import PrivacyPages from "./pages/privacyPages/PrivacyPages";
+import TermsPages from "./pages/termsPages/TermsPages";
 
 
 function App() {
@@ -39,8 +41,10 @@ function App() {
         <Route path="/Forgotpassword" element={<ForgotpasswordPages />} />
         <Route path="/Register" element={<RegisterPages/>}/>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/privacy" element={<PrivacyPages/>}/>
         <Route path = "/cart" element={<CartPages />} />
-          
+        <Route path = "/terms" element={<TermsPages />} />
+        
       </Routes>
       <Whatsapp/>
       <Footer/>

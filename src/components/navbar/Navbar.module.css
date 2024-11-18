@@ -36,10 +36,12 @@
   display: flex;
   list-style: none;
   gap: 2rem;
+  
 }
 
 .navLinks li {
   cursor: pointer;
+  font-size: 25px;
 }
 
 .dropdown {

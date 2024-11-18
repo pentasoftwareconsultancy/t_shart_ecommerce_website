@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // Importing eye icons
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Register.module.css";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -10,6 +11,7 @@ const Register = () => {
     password: "",
   });
 
+  const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
@@ -17,10 +19,30 @@ const Register = () => {
     setFormData({ ...formData, [id]: value });
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.firstName.trim()) newErrors.firstName = "First name is required.";
+    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required.";
+    if (!formData.email.trim()) newErrors.email = "Email is required.";
+    if (!formData.password.trim()) newErrors.password = "Password is required.";
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle registration logic here
-    console.log("Form Submitted:", formData);
+
+    if (validateForm()) {
+      // Save user data to localStorage
+      localStorage.setItem("userEmail", formData.email);
+      localStorage.setItem("userPassword", formData.password);
+
+      // Redirect to login page
+      navigate("/login");
+    }
   };
 
   const togglePasswordVisibility = () => {
@@ -42,6 +64,7 @@ const Register = () => {
               value={formData.firstName}
               onChange={handleChange}
             />
+            {errors.firstName && <p className={styles.error}>{errors.firstName}</p>}
           </div>
           <div className={styles.inputGroup}>
             <label htmlFor="lastName">Last Name</label>
@@ -53,6 +76,7 @@ const Register = () => {
               value={formData.lastName}
               onChange={handleChange}
             />
+            {errors.lastName && <p className={styles.error}>{errors.lastName}</p>}
           </div>
           <div className={styles.inputGroup}>
             <label htmlFor="email">Email</label>
@@ -64,6 +88,7 @@ const Register = () => {
               value={formData.email}
               onChange={handleChange}
             />
+            {errors.email && <p className={styles.error}>{errors.email}</p>}
           </div>
           <div className={styles.inputGroup}>
             <label htmlFor="password">Password</label>
@@ -81,13 +106,18 @@ const Register = () => {
                 className={styles.toggleButton}
                 onClick={togglePasswordVisibility}
               >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                {showPassword ? "Hide" : "Show"}
               </button>
             </div>
+            {errors.password && <p className={styles.error}>{errors.password}</p>}
           </div>
           <button type="submit" className={styles.button}>
             Register
           </button>
+          <br/>
+          <p className={styles.login}>
+             Already have account?<Link to="/login">Log In</Link>
+            </p>
         </form>
       </div>
     </div>

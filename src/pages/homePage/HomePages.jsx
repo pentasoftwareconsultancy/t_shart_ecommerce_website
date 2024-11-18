@@ -3,6 +3,7 @@ import Card from "../../components/home/card/Card";
 import Tshart from "../../components/tshart/Tshart";
 import ProductDetails from "../../components/home/productDetails/ProductDetails";
 
+
 function HomePages() {
   return (
     <div>

@@ -1,4 +1,8 @@
 .container {
+  /* background-image: url("../../profile/login/Loginimg/images2news.jpg"); */
+  background-color: rgb(236, 163, 163);
+  background-size: cover;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +14,8 @@
 .gridContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 1px;
+ 
   height: 80vh;
   max-width: 1000px;
   background: white;
@@ -39,6 +44,9 @@
 }
 
 .formSection {
+  
+  background-size: cover;
+  /* width: 20px;  */
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
