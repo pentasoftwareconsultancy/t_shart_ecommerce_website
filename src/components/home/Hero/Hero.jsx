@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Hero.module.css";
+
 import logoimg from './images/logo1.jpeg'; // Logo image
 import tshirtImage from './images/tshirt.jpg';
 

@@ -1,0 +1,29 @@
+.favoritesContainer {
+    padding: 20px;
+  }
+  
+  .favoritesGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .productImage {
+    width: 100%;
+    height: auto;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
