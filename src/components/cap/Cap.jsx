@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa'; // Importing the heart icon for favorite
-import styles from './Tshart.module.css'; // Import the CSS module for styling
+import styles from './Cap.module.css'; // Import the CSS module for styling
 import { useFavorites } from '../context/FavoritesContext';  // Import the FavoritesContext
 
 
