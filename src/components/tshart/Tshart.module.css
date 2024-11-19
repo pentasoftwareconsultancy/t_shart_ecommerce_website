@@ -1,3 +1,6 @@
+/* Tshart.module.css */
+
+
 .bannerText {
   background-color: rgb(128, 124, 124);
   color: white;
@@ -21,52 +24,154 @@
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), -3px -3px 6px rgba(0, 0, 0, 0.3); /* Creates shadow on the text for depth */
   transform: perspective(500px) rotateX(10deg)  /* Gives the text a slight 3D rotation */
 }
-
-
-
+/* Heading styles (no changes needed) */
+.heading {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: whitesmoke;
+  padding-left: 60px;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
 
 .cardContainer {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px; /* Adjust the gap as needed */
-  padding-top: 30px;
-  padding-left: 40px;
-  padding-right: 40px;
-  min-height: 100%;
-  box-shadow: black;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  gap: 10px; /* Adjusted gap between items */
+  padding: 30px 30px; /* Padding to prevent overflow */
+  background-color: whitesmoke;
+  justify-items: center;
+  padding-bottom: 90px;
+  max-width: 100%;
+  box-sizing: border-box; 
+  overflow-x: hidden; 
+  width: 100%;
+  margin-bottom: 0px;
+  
 }
 
 .card {
-  cursor: pointer;
-  width: 100%; /* Make sure card width matches image width */
-  height: 280px; /* Set a fixed height for the card */
-  border-radius: 10px;
+  background-color: white;
+  border-radius: 20px; /* Rounded corners for the card */
+  overflow: hidden;
+  height: 250px; /* Adjusted card height */
+  width: 230px; /* Reduced width for a more compact design */
+  box-shadow: 0 4px 8px rgba(46, 45, 45, 0.1);
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  justify-content: flex-start; /* Align content from top to bottom */
+  position: relative;
+  margin-top: 70px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(54, 54, 54, 0.2); /* Darker shadow on hover */
 }
 
 .imageContainer {
-  position: relative;
   width: 100%;
-  height: 100%; /* Ensure the image container fills the card */
-  border-radius: 20px;
+  height: 200px; /* Adjusted height of the image container */
+  padding:10;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Needed for positioning the favorite icon */
+  border-radius: 18px; /* Rounded corners for the image container */
 }
 
 .image {
-  width: 100%; /* Ensure image takes the full width of the card */
-  height: 100%; /* Set height to match card height */
-  object-fit: cover; /* Ensures image scales correctly without distortion */
+  width: 120%;
+  height: 110%;
+  object-fit:fill; /* Ensures the image fits well */
+  border-radius: 15px; /* Rounded corners for the image */
+  background-color: antiquewhite;
 }
 
-.cardName {
-  text-align: center;
-  font-weight: bold;
-  margin-top: 5px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.favoriteIconContainer {
+  position: absolute;
+  top: 5px;
+  right: 3px;
+  
+  border-radius: 100%;
+  padding: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
-
 
 .favoriteIcon {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: red;
+  font-size: 1.5em;
+  color: rgb(196, 31, 31); /* Red color for the heart */
+}
+
+
+/* Updated styles for the details section */
+.details {
+  display: flex;
+  align-items: center;  /* Align name and button horizontally */
+  justify-content: space-between;  /* Name on the left, Add to Cart button on the right */
+  width: 100%;
+  padding: 5px 0;  /* Small vertical padding */
+}
+
+.name {
+  font-size: 18px;
+  font-weight: bolder;
+  color: black;
+  cursor: pointer;
+  margin: 0;  /* No margin for tight alignment */
+  padding: 0;  /* No padding */
+}
+
+/* .name:hover {
+  background-color: rgb(218, 216, 216);
+  border-radius: 10px;
+  padding: 5px 5px;
+} */
+
+.addToCartButton {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 15px; /* Adjusted padding for a smaller button */
+  font-size: 14px; /* Slightly smaller font size */
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.addToCartButton:hover {
+  background-color: #0056b3;
+}
+
+.price {
+  font-size: 18px;
+  color: black;
+  font-weight: bolder;
+  cursor: pointer;
+  margin-top: 5px;  /* Adds space directly below name and button */
+}
+
+/* .price:hover {
+  background-color: rgb(218, 216, 216);
+  border-radius: 10px;
+  padding: 2px 5px;
+} */
+
+@media (max-width: 1200px) {
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .cardContainer {
+    grid-template-columns: 1fr; /* 1 card per row on smaller screens */
+  }
+
+  .heading {
+    padding-left: 20px;
+  }
 }

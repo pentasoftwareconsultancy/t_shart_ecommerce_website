@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa'; // Importing the heart icon for favorite
 import styles from './Tshart.module.css'; // Import the CSS module for styling
 import { useFavorites } from '../context/FavoritesContext';  // Import the FavoritesContext
+
+
+
 import image1 from './logoimg/logo1.jpeg'; // Images
 import image2 from './logoimg/logo2.jpeg';
 import image3 from './logoimg/logo3.jpeg';
@@ -16,16 +19,16 @@ import image10 from './logoimg/logo10.jpeg';
 
 // Sample card data
 const cardData = [
-  { id: "card-1", image: image1, name: "Logo 1" },
-  { id: "card-2", image: image2, name: "Logo 2" },
-  { id: "card-3", image: image3, name: "Logo 3" },
-  { id: "card-4", image: image4, name: "Logo 4" },
-  { id: "card-5", image: image5, name: "Logo 5" },
-  { id: "card-6", image: image6, name: "Logo 6" },
-  { id: "card-7", image: image7, name: "Logo 7" },
-  { id: "card-8", image: image8, name: "Logo 8" },
-  { id: "card-9", image: image9, name: "Logo 9" },
-  { id: "card-10", image: image10, name: "Logo 10" },
+  { id: "card-1", image: image1, name: "Brand Logo 1", price: "Rs 100.00" },
+  { id: "card-2", image: image2, name: "Brand Logo 2", price: "Rs 200.00" },
+  { id: "card-3", image: image3, name: "Brand Logo 3", price: "Rs 300.00" },
+  { id: "card-4", image: image4, name: "Brand Logo 4", price: "Rs 400.00" },
+  { id: "card-5", image: image5, name: "Brand Logo 5", price: "Rs 500.00" },
+  { id: "card-6", image: image6, name: "Brand Logo 6", price: "Rs 600.00" },
+  { id: "card-7", image: image7, name: "Brand Logo 7", price: "Rs 700.00" },
+  { id: "card-8", image: image8, name: "Brand Logo 8", price: "Rs 800.00" },
+  { id: "card-9", image: image9, name: "Brand Logo 9", price: "Rs 900.00" },
+  { id: "card-10", image: image10, name: "Brand Logo 10", price: "Rs 1000.00" },
 ];
 
 const Tshart = () => {
@@ -53,25 +56,51 @@ const Tshart = () => {
         <span>**Trendy Logo**</span>
       </div>
 
-      {/* Cards Section */}
       <div className={styles.cardContainer}>
         {cardData.map((card) => (
-          <div
-            className={styles.card}
-            key={card.id}
-            onClick={() => handleNavigateToProductDetails(card.id)}
-          >
+          <div className={styles.card} key={card.id}>
             <div className={styles.imageContainer}>
-              <img src={card.image} alt={card.id} className={styles.image} />
-              <FaHeart
-                className={styles.favoriteIcon}
-                onClick={(e) => {
-                  e.stopPropagation(); // Prevents triggering the card's onClick event
-                  handleAddToFavorites(card); // Add to favorites
-                }}
+              <img
+                src={card.image}
+                alt={card.name}
+                className={styles.image}
+                onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)}
               />
+
+              {/* Favorite Icon */}
+              <div className={styles.favoriteIconContainer}>
+                <FaHeart
+                  className={styles.favoriteIcon}
+                  onClick={() => handleAddToFavorites(card)} // Add to favorites and navigate
+                />
+              </div>
             </div>
-            <div className={styles.cardName}>{card.name}</div> {/* Card name below the image */}
+
+            <div className={styles.details}>
+              {/* Name clickable to navigate to ProductDetails */}
+              <span
+                className={styles.name}
+                onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)}
+              >
+                {card.name}
+              </span>
+
+              {/* Add to Cart Button */}
+              {/* <button
+                className={styles.addToCartButton}
+                onClick={() => handleAddToCart(card)} 
+              >
+                Add to Cart
+              </button> */}
+            </div>
+
+            {/* Price */}
+            <span
+              className={styles.price}
+              onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)} // Navigate to ProductDetails when clicked
+            >
+              {card.price}
+            </span>
           </div>
         ))}
       </div>

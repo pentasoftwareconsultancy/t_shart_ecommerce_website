@@ -65,8 +65,9 @@ const Navbar = () => {
 
       {/* Icons Section */}
       <div className={styles.icons}>
-        <FaHeart className={styles.icon} />
-        <FaShoppingCart className={styles.icon} />
+      <Link to= "/favorites" > <FaHeart className={styles.icon} /></Link> 
+      
+        <Link to="/cart" ><FaShoppingCart className={styles.icon} /></Link>
         <div className={styles.dropdown}>
          
           <FaUserCircle className={styles.iconss} onClick={toggleProfile} />
