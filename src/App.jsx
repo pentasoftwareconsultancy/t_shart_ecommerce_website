@@ -26,7 +26,8 @@ import TermsPages from "./pages/termsPages/TermsPages";
 import FavoritesPage from "./components/favourite/FavoritesPage";
 import FavoritesProvider from "./components/context/FavoritesContext";
 import CartProvider from "./components/context/CartContext";
-import Cart from "./components/cart/Cart";
+// import CartPages from "./pages/cartPages/CartPages";
+import PaymentPages from "./pages/paymentPages/PaymentPages";
 function App() {
   return (
     <FavoritesProvider>
@@ -51,6 +52,8 @@ function App() {
 
         <Route path = "/terms" element={<TermsPages />} />
          <Route path = "/favorites" element={<FavoritesPage />} />  
+
+         <Route path = "/payment" element={<PaymentPages/>} /> 
       </Routes>
       <Whatsapp/>
       <Footer/>

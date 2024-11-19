@@ -173,6 +173,9 @@ display: block;
 .navLinks li{
   color: black;
 }
+.icon{
+  color: white;
+}
 
 /* Prevent color change on hover */
 .navLinks a:hover,

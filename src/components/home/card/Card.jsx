@@ -50,6 +50,7 @@ const CardsGrid = () => {
   // Handle Add to Cart button click
   const handleAddToCart = (product) => {
     addToCart(product); // Add product to cart (you can implement this logic in the cart context)
+    navigate('/cart'); // Navigate to the cart page after adding the product
   };
 
   return (
@@ -86,20 +87,22 @@ const CardsGrid = () => {
               </span>
 
               {/* Add to Cart Button */}
-              <button
+             {/* Add to Cart Button */}
+             <button
                 className={styles.addToCartButton}
-                onClick={() => handleAddToCart(card)} // Add to cart
+                onClick={() => handleAddToCart(card)} // Add to cart and navigate to cart page
               >
                 Add to Cart
               </button>
             </div>
+           
 
             {/* Price */}
             <span
               className={styles.price}
               onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)} // Navigate to ProductDetails when clicked
             >
-              {card.price}
+              Rs.{card.price}
             </span>
           </div>
         ))}

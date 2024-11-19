@@ -79,6 +79,9 @@
   color: white; /* Red color for the heart */
 }
 
+.favoriteIcon:hover{
+  color: red;
+}
 
 /* Updated styles for the details section */
 .details {

@@ -1,8 +1,9 @@
 import React from 'react';
 import { useFavorites } from '../context/FavoritesContext';
 import { useNavigate } from 'react-router-dom';
-import styles from './Favourite.module.css'; 
 import { useCart } from "../context/CartContext";
+import { FaHeart } from 'react-icons/fa'; // Import the heart icon for favorite
+import styles from './Favourite.module.css'; 
 
 const FavoritesPage = () => {
   const { favorites, removeFromFavorites } = useFavorites();
@@ -21,6 +22,11 @@ const FavoritesPage = () => {
     removeFromFavorites(productId); // Remove product from favorites
   };
 
+   // Handle navigation to ProductDetails page
+   const handleNavigateToProductDetails = (id, image, name, price) => {
+    navigate(`/product/${id}`, { state: { id, image, name, price } });
+  };
+
   return (
     <div className={styles.favoritesContainer}>
       <h2>Your Favorites</h2>
@@ -30,9 +36,26 @@ const FavoritesPage = () => {
         <div className={styles.favoritesGrid}>
           {favorites.map((product) => (
             <div key={product.id} className={styles.card}>
-              <img src={product.image} alt={product.name} className={styles.productImage} />
-              <h3>{product.name}</h3>
-              <p>{product.price}</p>
+              <div className={styles.imageContainer}>
+              <img
+                  src={product.image}
+                  alt={product.name}
+                  className={styles.productImage}
+                  onClick={() => handleNavigateToProductDetails(product.id, product.image, product.name, product.price)} // Use product details instead of card
+                />
+                
+                {/* Favorite Icon */}
+                <div className={styles.favoriteIcon}>
+                  <FaHeart className={styles.favoriteIconStyle} />
+                </div>
+              </div>
+
+              {/* Product Details (Name and Price) */}
+              <div className={styles.productDetails}>
+                <h3 className={styles.productName}>{product.name}</h3>
+                <p className={styles.productPrice}>{product.price}</p>
+              </div>
+
               <div className={styles.buttonContainer}>
                 <button onClick={() => handleRemoveFromFavorites(product.id)}>Delete</button>
                 <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
