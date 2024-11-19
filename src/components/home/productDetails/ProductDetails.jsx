@@ -7,10 +7,13 @@ const ProductDetails = () => {
   const navigate = useNavigate();
   const { id, image, name, price } = location.state; // Retrieve the data passed from the Card component
 
+  
+
   // Local state to store the selected product in the cart
   const [cart, setCart] = useState(() => {
     // Retrieve cart items from localStorage if they exist
     const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
+    // console.log(cart);
     return savedCart;
   });
 
@@ -38,6 +41,12 @@ const ProductDetails = () => {
     // Navigate to the cart page after adding the product
     navigate('/cart');
   };
+
+  // const ProductDetails = () => {
+  //   const { id } = useParams();
+   
+  //   return <div>Product Details for {id}</div>;
+  // };
 
   return (
     <div className={styles.productDetailsContainer}>

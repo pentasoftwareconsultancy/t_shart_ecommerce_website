@@ -1,21 +1,24 @@
 import React from 'react';
 import { useFavorites } from '../context/FavoritesContext';
 import { useNavigate } from 'react-router-dom';
-import styles from './Favourite.module.css'; // Create this CSS module for styling
-import { useCart } from "../context/CartContext";  // If using .js extension
+import styles from './Favourite.module.css'; 
+import { useCart } from "../context/CartContext";
 
 const FavoritesPage = () => {
   const { favorites, removeFromFavorites } = useFavorites();
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
+  // Function to add product to cart and remove from favorites
   const handleAddToCart = (product) => {
-    addToCart(product);
-    navigate('/cart');
+    addToCart(product); // Add product to cart
+    removeFromFavorites(product.id); // Remove product from favorites
+    navigate('/cart'); // Navigate to Cart page
   };
 
+  // Function to remove product from favorites
   const handleRemoveFromFavorites = (productId) => {
-    removeFromFavorites(productId);
+    removeFromFavorites(productId); // Remove product from favorites
   };
 
   return (
