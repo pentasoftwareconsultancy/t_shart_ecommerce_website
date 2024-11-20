@@ -27,6 +27,7 @@ import FavoritesPage from "./components/favourite/FavoritesPage";
 import FavoritesProvider from "./components/context/FavoritesContext";
 import CartProvider from "./components/context/CartContext";
 import Cart from "./components/cart/Cart";
+import ImagessPages from "./pages/imagessPage/ImagessPages";
 function App() {
   return (
     <FavoritesProvider>
@@ -51,6 +52,7 @@ function App() {
 
         <Route path = "/terms" element={<TermsPages />} />
          <Route path = "/favorites" element={<FavoritesPage />} />  
+         <Route path = "/Imagess" element={<ImagessPages />} />
       </Routes>
       <Whatsapp/>
       <Footer/>

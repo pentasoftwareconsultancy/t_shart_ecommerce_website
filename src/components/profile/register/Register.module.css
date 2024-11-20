@@ -1,12 +1,15 @@
 /* Center the page */
 .pageWrapper {
+  margin-top: 70px;
   background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f9f9f9; /* Light background */
+  /* background-color: #f9f9f9; */
   padding: 20px;
+  /* background: linear-gradient(-45deg, rgb(218, 64, 64), rgb(80, 231, 80), rgb(93, 93, 250), rgb(246, 246, 100));
+  animation: animate 15s ease infinite; */
 }
 
 /* Container styles */
@@ -78,7 +81,8 @@
 }
 
 .toggleButton:hover {
-  color: #007bff;
+  color: #555;
+  background-color: white;
 }
 
 .button {

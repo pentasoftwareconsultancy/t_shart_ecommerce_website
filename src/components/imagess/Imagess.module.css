@@ -1,0 +1,162 @@
+/* Container for shirt and logo */
+.container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border: 1px solid #ccc;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
+
+/* Shirt container */
+.shirt {
+  position: relative;
+  width: 300px;
+  height: 500px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
+}
+
+/* Logo styles */
+.logo {
+  position: absolute;
+  cursor: grab;
+  border: 1px dashed #000;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Handle for resizing */
+.resizeHandle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+
+.resizeHandle:hover {
+  background: #ccc; /* Change background color on hover */
+}
+
+.rightHandle {
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: ew-resize;
+}
+
+.leftHandle {
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: ew-resize;
+}
+
+.topHandle {
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: ns-resize;
+}
+
+.bottomHandle {
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: ns-resize;
+}
+
+/* Controls for choosing shirt color */
+.controls {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Color buttons for shirt selection */
+.colorOptions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Individual color button style */
+.colorButton {
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Different colors for the buttons */
+.colorButton.white {
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
+.colorButton.black {
+  background-color: #000;
+}
+
+.colorButton.red {
+  background-color: #f00;
+}
+
+.colorButton.green {
+  background-color: #0f0;
+}
+
+.colorButton.blue {
+  background-color: #00f;
+}
+
+/* Media queries for mobile responsiveness */
+@media (max-width: 768px) {
+  .container {
+    height: auto; /* Allow container to adjust based on content */
+    padding: 10px; /* Add padding for mobile view */
+  }
+
+  .shirt {
+    width: 80%; /* Reduce shirt width for smaller screens */
+    height: 400px; /* Adjust shirt height for better fitting */
+  }
+
+  .logo {
+    width: 80px; /* Make the logo smaller on mobile */
+    height: 80px; /* Adjust logo height */
+  }
+
+  .colorOptions {
+    gap: 5px; /* Reduce gap between color buttons */
+  }
+
+  .colorButton {
+    width: 40px; /* Make color buttons smaller */
+    height: 40px; /* Adjust button height */
+  }
+
+  /* Optional: Adjust controls layout for smaller devices */
+  .controls {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .shirt {
+    width: 90%; /* Further reduce shirt width */
+    height: 300px; /* Adjust height further */
+  }
+
+  .logo {
+    width: 60px; /* Further reduce logo size */
+    height: 60px; /* Adjust logo size */
+  }
+
+  .colorButton {
+    width: 35px; /* Smaller color buttons */
+    height: 35px; /* Adjust button size */
+  }
+}

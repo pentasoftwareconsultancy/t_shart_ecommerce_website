@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Footer.module.css';
 import { FaInstagram, FaTwitter, FaTiktok, FaPinterest } from 'react-icons/fa';
+import { FaFacebook } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -14,14 +15,15 @@ const Footer = () => {
           LOGO
         </div>
         <div className={styles.socialicons}>
-          <a href="#" aria-label="Instagram">
-            <FaInstagram size={24} />
+          <a href="#" aria-label= "/Imagess">
+          <Link to= "/Imagess"> <FaInstagram size={24} /></Link>
+            {/* <FaInstagram size={24} /> */}
           </a>
           <a href="#" aria-label="Twitter">
             <FaTwitter size={24} />
           </a>
           <a href="#" aria-label="TikTok">
-            <FaTiktok size={24} />
+          <FaFacebook /><FaFacebook size={24} />
           </a>
           <a href="#" aria-label="Pinterest">
             <FaPinterest size={24} />

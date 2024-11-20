@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 import styles from "./Register.module.css";
 
 const Register = () => {
@@ -106,7 +108,7 @@ const Register = () => {
                 className={styles.toggleButton}
                 onClick={togglePasswordVisibility}
               >
-                {showPassword ? "Hide" : "Show"}
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
             </div>
             {errors.password && <p className={styles.error}>{errors.password}</p>}
