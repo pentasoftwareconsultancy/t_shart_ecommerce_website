@@ -53,10 +53,17 @@ const Cart = () => {
     localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
 
+  
+
   // Function to handle navigation to the Payment page
   const handleBuyNow = () => {
-    navigate('/payment');
+    if (cart.length > 0) {
+      navigate('/payment', { state: { cart } }); // Navigate with cart data
+    } else {
+      alert('Your cart is empty! Add items before proceeding to payment.');
+    }
   };
+  
 
   // Calculate total number of products and total price
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
@@ -72,9 +79,9 @@ const Cart = () => {
       {cart.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (
-        <ul>
+        <div className={styles.cartGrid}>
           {cart.map(item => (
-            <li key={item.id} className={styles.cartItem}>
+            <div key={item.id} className={styles.cartItem}>
               <img
                 src={item.image}
                 alt={item.name}
@@ -107,9 +114,9 @@ const Cart = () => {
                   Remove
                 </button>
               </div>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
 
       {/* Buttons */}
