@@ -30,6 +30,7 @@ import Cart from "./components/cart/Cart";
 import ImagessPages from "./pages/imagessPage/ImagessPages";
 // import CartPages from "./pages/cartPages/CartPages";
 import PaymentPages from "./pages/paymentPages/PaymentPages";
+import VendorsPages from "./pages/vendorsPages/VendorsPages";
 function App() {
   return (
     <FavoritesProvider>
@@ -55,6 +56,7 @@ function App() {
         <Route path = "/terms" element={<TermsPages />} />
          <Route path = "/favorites" element={<FavoritesPage />} />  
          <Route path = "/Imagess" element={<ImagessPages />} />
+         <Route path = "/Vendors" element={<VendorsPages />} />
 
          <Route path = "/payment" element={<PaymentPages/>} /> 
 
