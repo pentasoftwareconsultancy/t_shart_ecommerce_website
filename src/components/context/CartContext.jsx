@@ -1,79 +1,80 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 
 const CartContext = createContext();
-
 export const useCart = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  // Load cart from localStorage when the app initializes
+  // Load cart from localStorage on initialization
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart"));
-    if (storedCart) {
-      setCart(storedCart);
-    }
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(storedCart); // Sync state with localStorage
   }, []);
 
-  // Sync cart changes to localStorage
-  const syncCartToLocalStorage = (updatedCart) => {
-    setCart(updatedCart);
+  // Save the updated cart to localStorage
+  const saveCartToLocalStorage = (updatedCart) => {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCart(updatedCart); // Update React state as well
   };
 
   // Add a product to the cart
   const addToCart = (product) => {
-    const existingProduct = cart.find((item) => item.id === product.id);
+    const updatedCart = [...cart];
+    const existingProductIndex = updatedCart.findIndex((item) => item.id === product.id);
 
-    if (existingProduct) {
-      const updatedCart = cart.map((item) =>
-        item.id === product.id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      );
-      syncCartToLocalStorage(updatedCart);
+    if (existingProductIndex >= 0) {
+      // Product exists: Update quantity and totalPrice
+      updatedCart[existingProductIndex].quantity += 1;
     } else {
-      const updatedCart = [...cart, { ...product, quantity: 1 }];
-      syncCartToLocalStorage(updatedCart);
+      // Add a new product
+      updatedCart.push({ ...product, quantity: 1 });
     }
+
+    saveCartToLocalStorage(updatedCart);
   };
 
   // Remove a product from the cart
   const removeFromCart = (id) => {
     const updatedCart = cart.filter((item) => item.id !== id);
-    syncCartToLocalStorage(updatedCart);
+    saveCartToLocalStorage(updatedCart);
   };
 
-  // Increase product quantity
+  // Increase quantity
   const increaseQuantity = (id) => {
     const updatedCart = cart.map((item) =>
       item.id === id ? { ...item, quantity: item.quantity + 1 } : item
     );
-    syncCartToLocalStorage(updatedCart);
+    saveCartToLocalStorage(updatedCart);
   };
 
-  // Decrease product quantity
+  // Decrease quantity
   const decreaseQuantity = (id) => {
     const updatedCart = cart.map((item) =>
       item.id === id && item.quantity > 1
         ? { ...item, quantity: item.quantity - 1 }
         : item
     );
-    syncCartToLocalStorage(updatedCart);
+    saveCartToLocalStorage(updatedCart);
   };
 
-  // Calculate total cart count
+  // Clear cart (optional)
+  const clearCart = () => {
+    saveCartToLocalStorage([]);
+  };
+
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <CartContext.Provider
       value={{
         cart,
-        cartCount,
         addToCart,
         removeFromCart,
         increaseQuantity,
         decreaseQuantity,
+        clearCart,
+        cartCount,
       }}
     >
       {children}

@@ -188,23 +188,24 @@
   color: #000; /* Active link color */
 }
 
-/* Cart Icon Styles */
+/* Add the cartCount styles */
 .cartIcon {
   position: relative;
-  font-size: 1.5rem;
-  color: #333;
 }
 
 .cartCount {
   position: absolute;
   top: -5px;
-  right: -10px;
+  right: -5px;
   background-color: red;
   color: white;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: bold;
+  padding: 2px 5px;
+  border-radius: 50%;
+  min-width: 20px;
+  text-align: center;
+  line-height: 14px;
 }
 
 /* Mobile Responsiveness */

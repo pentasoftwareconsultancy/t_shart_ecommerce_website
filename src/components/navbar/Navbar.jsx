@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { FaSearch, FaHeart, FaShoppingCart, FaUserCircle } from "react-icons/fa";
-import { useCart } from "../context/CartContext";
-
- // Import CartContext to access cartCount
+import { useCart } from "../context/CartContext"; // Make sure path is correct
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,7 +10,7 @@ const Navbar = () => {
   const [profileOpen, setProfileOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const { cartCount } = useCart(); // Access cartCount from CartContext
+  const { cartCount, removeFromCart } = useCart(); // Access cartCount from CartContext
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const toggleCollections = () => setCollectionsOpen(!collectionsOpen);
@@ -57,7 +55,6 @@ const Navbar = () => {
 
         </li>
         <li>
-
           <Link to="/contact">Contact</Link>
         </li>
       </ul>
@@ -80,11 +77,11 @@ const Navbar = () => {
           <FaHeart className={styles.icon} />
         </Link>
         <Link to="/cart" className={styles.cartIcon}>
-          <FaShoppingCart className={styles.icon} />
-          {cartCount > 0 && (
-            <span className={styles.cartCount}>{cartCount}</span>
-          )}
-        </Link>
+  <FaShoppingCart className={styles.icon} />
+  {cartCount > 0 && (
+    <span className={styles.cartCount}>{cartCount}</span>
+  )}
+</Link>
         <div className={styles.dropdown}>
           <FaUserCircle className={styles.iconss} onClick={toggleProfile} />
           {profileOpen && (

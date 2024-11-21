@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import styles from "./Login.module.css";
-import { Link } from "react-router-dom";
 import images1 from "../../profile/login/Loginimg/imges1.jpg";
 
 const Login = () => {
   const navigate = useNavigate(); // Initialize navigate function
+  const location = useLocation(); // Get location state for redirection
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -13,11 +14,13 @@ const Login = () => {
 
   const [error, setError] = useState(""); // State to hold error messages
 
+  // Handle input changes
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -35,7 +38,11 @@ const Login = () => {
     if (formData.email === storedEmail && formData.password === storedPassword) {
       console.log("Login Successful:", formData);
       setError(""); // Clear the error message on successful login
-      navigate("/"); // Redirect to the home page
+      localStorage.setItem("user", JSON.stringify({ email: storedEmail })); // Save user session
+
+      // Redirect to cart page after login or the page user came from
+      const redirectTo = location.state?.redirectTo || "/cart";  // Default to cart page
+      navigate(redirectTo);
     } else {
       setError("Invalid email or password. Please try again.");
     }
