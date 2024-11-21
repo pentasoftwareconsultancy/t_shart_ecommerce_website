@@ -16,6 +16,29 @@ const Cart = () => {
     }));
   });
 
+  // Function to add a product to the cart
+  const handleAddToCart = (product) => {
+    const existingCart = [...cart]; // Clone current cart state
+    const existingProductIndex = existingCart.findIndex((item) => item.id === product.id);
+
+    if (existingProductIndex >= 0) {
+      // Update quantity if the product already exists in the cart
+      existingCart[existingProductIndex].quantity += 1;
+      existingCart[existingProductIndex].totalPrice =
+        existingCart[existingProductIndex].quantity * existingCart[existingProductIndex].price;
+    } else {
+      // Add the new product to the cart
+      existingCart.push({
+        ...product,
+        quantity: 1,
+        totalPrice: product.price,
+      });
+    }
+
+    setCart(existingCart); // Update the cart state
+    localStorage.setItem('cart', JSON.stringify(existingCart)); // Save updated cart to localStorage
+  };
+
   // Function to handle removing an item from the cart
   const handleRemoveFromCart = (id) => {
     const updatedCart = cart.filter(item => item.id !== id);
@@ -53,17 +76,14 @@ const Cart = () => {
     localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
 
-  
-
   // Function to handle navigation to the Payment page
- const handleBuyNow = () => {
-  if (cart.length > 0) {
-    navigate('/payment', { state: { cart } }); // Navigate with cart data
-  } else {
-    alert('Your cart is empty! Add items before proceeding to payment.');
-  }
-};
-
+  const handleBuyNow = () => {
+    if (cart.length > 0) {
+      navigate('/payment', { state: { cart } }); // Navigate with cart data
+    } else {
+      alert('Your cart is empty! Add items before proceeding to payment.');
+    }
+  };
 
   // Calculate total number of products and total price
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
