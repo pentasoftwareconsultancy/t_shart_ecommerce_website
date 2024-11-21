@@ -48,6 +48,17 @@ const Navbar = () => {
           )}
         </li>
         <li>
+<<<<<<< HEAD
+=======
+         Services
+          
+        </li>
+        <li>
+        Vendors
+
+        </li>
+        <li>
+>>>>>>> d259e12e8b3c70e42e7dd2888d59352c22428461
           <Link to="/contact">Contact</Link>
         </li>
       </ul>

@@ -1,72 +1,97 @@
+/* Hero.module.css */
+
+/* Main section containing the sliders */
 .heroSection {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.sliderContainer {
-  position: relative;
-  width: 80%;
-  max-width: 600px;
-  margin: auto;
-}
-
-.sliderWrapper {
-  position: relative;
-  display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 90px;
+  background-color: #f9f9f9;
+  width: 100%; /* Ensures the section spans full width */
+  box-sizing: border-box;
+  height: 70vh;
 }
 
-.sliderImageContainer img {
+/* Container for all sliders */
+.sliderContainer {
+  display: flex;
+  flex-wrap: wrap; /* Adjust for smaller screens */
+  gap: 5px; /* Space between sliders */
+  width: 100%; /* Full width */
+  justify-content: space-around;
+}
+
+/* Individual slider wrapper */
+.sliderWrapper {
+  flex: 1 1 100%; /* Slider takes full width initially */
+  max-width: 48%; /* Optional: Set a max-width for larger screens */
+  position: relative;
+  height: 70vh;
+  overflow: hidden; /* Ensures images don't overflow the container */
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  box-sizing: border-box; /* Include padding/border in the width */
+}
+
+/* Container for the slider images */
+.sliderImageContainer {
   width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  transition: filter 0.3s ease-in-out;
+  aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #eaeaea; /* Fallback background color */
 }
 
+/* Slider images */
+.shirtImage {
+  width: 100%; /* Ensures the image spans the full width of the container */
+  height: 100%; /* Ensures the image spans the full height of the container */
+  object-fit: contain; /* Keeps the image's aspect ratio intact */
+}
+
+/* Buttons for navigating images */
 .arrowButtons {
-  position: absolute;
-  top: 50%;
-  width: 100%;
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 50%;
   transform: translateY(-50%);
+  pointer-events: none; /* Ensures the buttons don't interfere with layout */
 }
 
 .arrowBtn {
-  background: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: #fff;
   border: none;
-  color: white;
-  padding: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   font-size: 18px;
+  transition: background-color 0.3s ease;
+  pointer-events: all; /* Re-enable pointer events for the buttons */
 }
 
 .arrowBtn:hover {
-  background: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-.colorButtonsContainer {
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
+.arrowBtn:active {
+  transform: scale(0.9); /* Adds a subtle click effect */
 }
 
-.colorButton {
-  width: 40px;
-  height: 40px;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-  outline: none;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sliderWrapper {
+    max-width: 100%; /* Slider takes full width on small screens */
+  }
 }
-
-.colorButton:hover {
-  transform: scale(1.1);
-}
-
-/* Ensure brightness and visibility */
-/* .shirtImage {
-  filter: brightness(5.5) saturate(4.2); }/* Increase base brightness and saturation */
- 

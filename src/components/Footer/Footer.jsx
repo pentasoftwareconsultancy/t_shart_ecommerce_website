@@ -23,7 +23,7 @@ const Footer = () => {
             <FaTwitter size={24} />
           </a>
           <a href="#" aria-label="TikTok">
-          <FaFacebook /><FaFacebook size={24} />
+          <FaFacebook size={24} />
           </a>
           <a href="#" aria-label="Pinterest">
             <FaPinterest size={24} />
