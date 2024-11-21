@@ -41,10 +41,12 @@ const Navbar = () => {
           )}
         </li>
         <li>
-          <Link to="/shirts">Shirt</Link>
+         Services
+          
         </li>
         <li>
-          <Link to="/caps">Cap</Link>
+        Vendors
+
         </li>
         <li>
           <Link to="/contact">Contact</Link>
