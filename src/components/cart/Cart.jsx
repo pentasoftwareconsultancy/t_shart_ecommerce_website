@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Cart.module.css';
 
 const Cart = () => {
   const navigate = useNavigate();
+
+  // Check if the user is logged in
+  const isUserLoggedIn = () => {
+    const user = JSON.parse(localStorage.getItem('user')); // Assuming user info is stored in localStorage
+    return user && user.email; // User is logged in if email exists
+  };
 
   // Initialize cart state from localStorage or an empty array
   const [cart, setCart] = useState(() => {
@@ -16,14 +22,28 @@ const Cart = () => {
     }));
   });
 
-  // Function to handle removing an item from the cart
-  const handleRemoveFromCart = (id) => {
-    const updatedCart = cart.filter(item => item.id !== id);
-    setCart(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
+  // Recalculate total quantity and price after cart update
+  const calculateTotal = (updatedCart) => {
+    const totalQuantity = updatedCart.reduce((total, item) => total + item.quantity, 0);
+    const totalPrice = updatedCart.reduce((total, item) => total + item.totalPrice, 0).toFixed(2);
+    return { totalQuantity, totalPrice };
   };
 
-  // Function to handle increasing the quantity of an item
+  // State for cart totals (quantity & price)
+  const [cartTotals, setCartTotals] = useState(calculateTotal(cart));
+
+  // Handle removing a product from the cart
+  const handleRemoveFromCart = (id) => {
+    const updatedCart = cart.filter(item => item.id !== id);  // Remove the product by its ID
+    setCart(updatedCart);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+
+    // Recalculate and update the total quantity and price
+    const { totalQuantity, totalPrice } = calculateTotal(updatedCart);
+    setCartTotals({ totalQuantity, totalPrice });
+  };
+
+  // Handle increasing the quantity of a product
   const handleIncreaseQuantity = (id) => {
     const updatedCart = cart.map(item =>
       item.id === id
@@ -36,9 +56,13 @@ const Cart = () => {
     );
     setCart(updatedCart);
     localStorage.setItem('cart', JSON.stringify(updatedCart));
+
+    // Recalculate and update the total quantity and price
+    const { totalQuantity, totalPrice } = calculateTotal(updatedCart);
+    setCartTotals({ totalQuantity, totalPrice });
   };
 
-  // Function to handle decreasing the quantity of an item
+  // Handle decreasing the quantity of a product
   const handleDecreaseQuantity = (id) => {
     const updatedCart = cart.map(item =>
       item.id === id && item.quantity > 1
@@ -51,19 +75,23 @@ const Cart = () => {
     );
     setCart(updatedCart);
     localStorage.setItem('cart', JSON.stringify(updatedCart));
+
+    // Recalculate and update the total quantity and price
+    const { totalQuantity, totalPrice } = calculateTotal(updatedCart);
+    setCartTotals({ totalQuantity, totalPrice });
   };
 
-  
-
-  // Function to handle navigation to the Payment page
+  // Handle the checkout process
   const handleBuyNow = () => {
-    navigate('/payment', { state: { cart } }); // Pass cart data
+    if (!isUserLoggedIn()) {
+      // Pass redirect path when navigating to login
+      navigate('/login', { state: { redirectTo: '/cart' } });
+    } else {
+      navigate('/payment', { state: { cart } });
+    }
   };
 
-  // Calculate total number of products and total price
-  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
-  const totalPrice = cart.reduce((total, item) => total + item.totalPrice, 0).toFixed(2);
-
+  // Handle product detail navigation
   const handleNavigateToProductDetails = (id, image, name, price) => {
     navigate(`/product/${id}`, { state: { id, image, name, price } });
   };
@@ -114,7 +142,6 @@ const Cart = () => {
         </div>
       )}
 
-      {/* Buttons */}
       <div className={styles.buttonsContainer}>
         <button className={styles.continueShopping} onClick={() => navigate('/')}>
           Continue Shopping
@@ -124,11 +151,10 @@ const Cart = () => {
         </button>
       </div>
 
-      {/* Order Summary */}
       <div className={styles.orderSummary}>
         <h3>Order Total</h3>
-        <p>Total Products: {totalQuantity}</p>
-        <p>Total Price: ₹{totalPrice}</p>
+        <p>Total Products: {cartTotals.totalQuantity}</p>
+        <p>Total Price: ₹{cartTotals.totalPrice}</p>
       </div>
     </div>
   );

@@ -17,6 +17,7 @@ const Navbar = () => {
   const toggleProfile = () => setProfileOpen(!profileOpen);
 
   const handleSearchChange = (e) => setSearchQuery(e.target.value);
+  
 
   return (
     <nav className={styles.navbar}>
@@ -82,7 +83,7 @@ const Navbar = () => {
   )}
 </Link>
         <div className={styles.dropdown}>
-          <FaUserCircle className={styles.icon} onClick={toggleProfile} />
+          <FaUserCircle className={styles.iconss} onClick={toggleProfile} />
           {profileOpen && (
             <ul className={styles.profileDropdownMenu}>
               <li>

@@ -1,34 +1,23 @@
+/* Navbar Styles */
 .navbar {
-  font-size: 25px;
+  font-size: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
   background-color: #333;
   color: #faf8f8;
-  position: relative;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  z-index: 1000;
   position: fixed;
-  width: 97%;
-  top: 0;
-  left: 0;
-}
-.logo.navLinks:hover{
-  transform: scale(1.1);
-}
-/* .navbar {
-  position: fixed;
+  padding-bottom: -10px;
   top: 0;
   left: 0;
   width: 100%;
-  
-  justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 8px; /* Adjust padding */
   z-index: 1000;
-} */
+}
 
+.logo.navLinks:hover {
+  transform: scale(1.1);
+}
 
 .logo {
   font-size: 1.5rem;
@@ -38,19 +27,20 @@
 .navLinks {
   display: flex;
   list-style: none;
-  gap: 2rem;
-  
+  gap: 1rem;
 }
 
 .navLinks li {
+  margin-top: 10px;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .dropdown {
   position: relative;
 }
-.dropdownMenu li{
+
+.dropdownMenu li {
   color: black;
 }
 
@@ -69,20 +59,20 @@
   z-index: 1000; /* Ensure it appears above other elements */
 }
 
-
-.dropdown a{
+.dropdown a {
   padding-bottom: 20px;
 }
 
 .dropdown:hover .dropdownMenu {
-display: block;
- opacity: 1;
- visibility: visible;
+  display: block;
+  opacity: 1;
+  visibility: visible;
 }
+
 .profileDropdownMenu {
   margin-top: 0px;
   padding-top: 5px;
-  box-shadow: 0 4px 8px  rgba(0, 0, 0, 0.2) ;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   position: absolute;
   background-color: #333;
@@ -93,25 +83,23 @@ display: block;
   width: 200px;
   display: none;
 }
-.dropdown .iconss{
-  padding-bottom: 10px;
-  /* padding-top: 10px; */
-}
 
+.dropdown .iconss {
+  padding-bottom: 10px;
+}
 
 .dropdown:hover .profileDropdownMenu {
   display: block;
 }
 
 .icons {
-  margin-top: 13px;
+  margin-top: 10px;
   display: flex;
+  margin-right: 20px;
   gap: 1.5rem;
- 
 }
 
 .iconss {
- 
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -135,15 +123,15 @@ display: block;
 
 /* Search Bar Styles */
 .searchBar {
+  margin-left: -50px;
   display: flex;
   align-items: center;
   position: relative;
-  margin-left: 2rem;
 }
 
 .searchInput {
-  padding: 10px 20px;
-  width: 250px;
+  padding: 7px 15px;
+  width: 290px;
   font-size: 1rem;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -152,7 +140,7 @@ display: block;
 
 .searchIcon {
   position: absolute;
-  right: 10px;
+  right: 20px;
   font-size: 1.2rem;
   color: #333;
   cursor: pointer;
@@ -161,22 +149,27 @@ display: block;
 .searchInput:focus {
   border-color: #007bff;
 }
-.profileDropdownMenu li{
+
+.profileDropdownMenu li {
   color: rgb(248, 245, 245);
   text-decoration: none;
 }
-.shirt .link{
+
+.shirt .link {
   color: #000;
 }
-/* Default link style */
+
+/* Link Styling */
 .navLinks a {
-  color: rgb(249, 246, 246); /* Set your desired default color */
+  color: rgb(249, 246, 246); /* Default link color */
   text-decoration: none; /* Remove underline */
 }
-.navLinks li{
+
+.navLinks li {
   color: black;
 }
-.icon{
+
+.icon {
   color: white;
 }
 
@@ -184,13 +177,11 @@ display: block;
 .navLinks a:hover,
 .navLinks a:active,
 .navLinks a:visited {
-  /* Keep the same color on hover, active, or visited */
-  text-decoration: none; /* Optional: prevent underline on hover */
+  text-decoration: none; /* Prevent underline on hover */
 }
 
-/* If you have a class specifically for the "active" link */
 .navLinks .active {
-  color: #000; /* Same color on active */
+  color: #000; /* Active link color */
 }
 
 /* Add the cartCount styles */
@@ -213,12 +204,10 @@ display: block;
   line-height: 14px;
 }
 
-
-
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .navLinks {
-    padding-right: 200px;
+    padding-right: 0;
     display: none;
     position: absolute;
     top: 60px;
@@ -226,7 +215,7 @@ display: block;
     right: 0;
     background-color: #333;
     flex-direction: column;
-    gap: 1rem;
+    /* gap: 1rem; */
     padding: 2rem;
     z-index: 10;
   }
@@ -236,51 +225,7 @@ display: block;
   }
 
   .menuToggle {
-    width: 50px;
-    display: flex;
-    margin-right: 80px;
-  }
-
-  .icon {
-    display: none;
-  }
-  .icons{
-    margin-top: 13px;
-  }
-  .searchBar {
-    flex: 1;
-  }
-
-  .searchBar {
-    padding-right: 225px;
-   width: 10px;
-  }
-}
-@media (max-width: 480px){
-  .navLinks {
-    padding-right: 200px;
-    display: none;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background-color: #333;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 2rem;
-    z-index: 10;
-    
-  }
-  .Logo{
-     margin-left: -10px;
-  }
-
-  .navLinks.active {
-    display: flex;
-  }
-
-  .menuToggle {
-    width: 10px;
+    width: 40px;
     display: flex;
     margin-right: 20px;
   }
@@ -288,55 +233,65 @@ display: block;
   .icon {
     display: none;
   }
-  .icons{
+
+  .iconss {
     margin-top: 13px;
+    margin-right: 30px;
   }
+
   .searchBar {
+    width: auto;
+    padding-right: 225px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navLinks {
+    padding-right: 0;
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    flex-direction: column;
+    margin-left: 10px;
+    z-index: 10;
+    margin-right: -100px;
+  }
+
+  .Logo {
+    margin-left: -5px;
+  }
+
+  .navLinks.active {
+    display: flex;
+  }
+
+  .menuToggle {
+    width: 30px;
+    display: flex;
+    margin-right: 10px;
+  }
+
+  .icon {
+    display: none;
+  }
+
+  .iconss {
+    margin-top: 13px;
+    /* margin-right: 200px; */
+    /* padding-right: 5px; */
+margin-right: -550px;
+  }
+
+  .searchBar {
+    width: 5px;
     flex: 1;
+    margin-left: 5px;
   }
 
   .searchBar {
     padding-right: 225px;
-    margin-left: 7px;
-   /* width: -2px; */
   }
 }
-
-
-@media (max-width: 300px) {
-  .navLinks {
-    padding-right: 150px;  /* Reduce padding for smaller screens */
-    padding: 1.5rem;        /* Reduce padding for compact screens */
-  }
-
-  .Logo {
-    margin-left: -5px;      /* Adjust logo positioning */
-  }
-
-  .menuToggle {
-    width: 8px;             /* Make the toggle button smaller */
-    margin-right: 15px;     /* Adjust right margin */
-  }
-
-  .searchBar {
-    padding-right: 150px;   /* Reduce padding for search bar */
-    margin-left: 5px;       /* Adjust margin */
-    font-size: 14px;        /* Adjust font size for smaller screens */
-  }
-
-  .icons {
-    margin-top: 10px;       /* Reduce margin for icon containers */
-  }
-
-  .navLinks.active {
-    padding: 1rem;  /* Reduce padding on active links */
-  }
-}
-
-
-/* Link Styling */
-.profileDropdownMenu li a {
-  text-decoration: none;
-  color: inherit; /* Inherit text color from li */
-}
-
