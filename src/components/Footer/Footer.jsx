@@ -16,17 +16,19 @@ const Footer = () => {
         </div>
         <div className={styles.socialicons}>
           <a href="#" aria-label= "/Imagess">
-          <Link to= "/Imagess"> <FaInstagram size={24} /></Link>
+          <Link to="/Imagess">
+      <FaInstagram size={24} color="#E4405F" />
+    </Link>
             {/* <FaInstagram size={24} /> */}
           </a>
           <a href="#" aria-label="Twitter">
-            <FaTwitter size={24} />
+            <FaTwitter size={24} color="#1DA1F2" />
           </a>
           <a href="#" aria-label="TikTok">
-          <FaFacebook size={24} />
+          <FaFacebook size={24} color="#1877F2"/>
           </a>
           <a href="#" aria-label="Pinterest">
-            <FaPinterest size={24} />
+            <FaPinterest size={24} color="#E60023" text-color />
           </a>
         </div>
         

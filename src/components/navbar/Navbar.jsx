@@ -46,6 +46,14 @@ const Navbar = () => {
           )}
         </li>
         <li>
+         Services
+          
+        </li>
+        <li>
+        Vendors
+
+        </li>
+        <li>
           <Link to="/contact">Contact</Link>
         </li>
       </ul>

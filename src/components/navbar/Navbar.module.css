@@ -193,6 +193,25 @@ display: block;
   color: #000; /* Same color on active */
 }
 
+/* Add the cartCount styles */
+.cartIcon {
+  position: relative;
+}
+
+.cartCount {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 5px;
+  border-radius: 50%;
+  min-width: 20px;
+  text-align: center;
+  line-height: 14px;
+}
 
 
 
@@ -261,7 +280,7 @@ display: block;
   }
 
   .menuToggle {
-    width: 20px;
+    width: 10px;
     display: flex;
     margin-right: 20px;
   }
@@ -284,6 +303,35 @@ display: block;
 }
 
 
+@media (max-width: 300px) {
+  .navLinks {
+    padding-right: 150px;  /* Reduce padding for smaller screens */
+    padding: 1.5rem;        /* Reduce padding for compact screens */
+  }
+
+  .Logo {
+    margin-left: -5px;      /* Adjust logo positioning */
+  }
+
+  .menuToggle {
+    width: 8px;             /* Make the toggle button smaller */
+    margin-right: 15px;     /* Adjust right margin */
+  }
+
+  .searchBar {
+    padding-right: 150px;   /* Reduce padding for search bar */
+    margin-left: 5px;       /* Adjust margin */
+    font-size: 14px;        /* Adjust font size for smaller screens */
+  }
+
+  .icons {
+    margin-top: 10px;       /* Reduce margin for icon containers */
+  }
+
+  .navLinks.active {
+    padding: 1rem;  /* Reduce padding on active links */
+  }
+}
 
 
 /* Link Styling */
