@@ -14,6 +14,13 @@ const Payment = () => {
     <div className={styles.paymentPage}>
       {/* Left Side Content */}
       <div className={styles.leftSection}>
+        {/* Order Summary */}
+        <div className={styles.orderSummary}>
+          <h2>Order Summary</h2>
+          <p>Total Products: {totalQuantity}</p>
+          <p>Total Price: ₹{totalPrice}</p>
+        </div>
+
         {/* Cart Items Grid */}
         <div className={styles.cartItems}>
           <h2>Review Your Order</h2>
@@ -31,8 +38,11 @@ const Payment = () => {
             ))}
           </div>
         </div>
+      </div>
 
-        {/* Address Form */}
+      {/* Right Side Content */}
+      <div className={styles.rightSection}>
+        {/* Shipping Address */}
         <div className={styles.addressForm}>
           <h2>Shipping Address</h2>
           <form>
@@ -61,16 +71,6 @@ const Payment = () => {
               <input type="text" placeholder="Enter your state" required />
             </div>
           </form>
-        </div>
-      </div>
-
-      {/* Right Side Content */}
-      <div className={styles.rightSection}>
-        {/* Order Summary */}
-        <div className={styles.orderSummary}>
-          <h2>Order Summary</h2>
-          <p>Total Products: {totalQuantity}</p>
-          <p>Total Price: ₹{totalPrice}</p>
         </div>
 
         {/* Payment Mode */}

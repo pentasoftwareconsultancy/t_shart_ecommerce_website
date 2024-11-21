@@ -99,7 +99,7 @@ const Tshart = () => {
               className={styles.price}
               onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)} // Navigate to ProductDetails when clicked
             >
-              {card.price}
+              Rs.{card.price}
             </span>
           </div>
         ))}

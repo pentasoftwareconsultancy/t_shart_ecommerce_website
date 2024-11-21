@@ -56,7 +56,7 @@ const ProductDetails = () => {
 
       <div className={styles.detailsContainer}>
         <h2>{name}</h2>
-        <p>{price}</p>
+        <p>Rs.{price}</p>
 
         {/* More product details */}
 

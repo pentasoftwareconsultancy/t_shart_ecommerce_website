@@ -35,8 +35,8 @@
 .cardContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
-  gap: 90px; /* Adjusted gap between items */
-  padding: 10px 10px; /* Padding to prevent overflow */
+  gap: 10px; /* Adjusted gap between items */
+  padding: 30px 30px; /* Padding to prevent overflow */
   background-color: whitesmoke;
   justify-items: center;
   padding-bottom: 90px;
@@ -45,6 +45,7 @@
   overflow-x: hidden; 
   width: 100%;
   margin-bottom: 0px;
+  
 }
 
 .card {
@@ -62,6 +63,7 @@
   position: relative;
   margin-top: 70px;
 }
+
 
 .card:hover {
   box-shadow: 0 8px 16px rgba(54, 54, 54, 0.2); /* Darker shadow on hover */
@@ -103,6 +105,9 @@
   color: rgb(255, 255, 255); /* Red color for the heart */
 }
 
+.favoriteIcon:hover{
+  color: red;
+}
 
 /* Updated styles for the details section */
 .details {

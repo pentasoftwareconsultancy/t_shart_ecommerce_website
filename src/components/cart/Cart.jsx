@@ -56,14 +56,14 @@ const Cart = () => {
   
 
   // Function to handle navigation to the Payment page
-  const handleBuyNow = () => {
-    if (cart.length > 0) {
-      navigate('/payment', { state: { cart } }); // Navigate with cart data
-    } else {
-      alert('Your cart is empty! Add items before proceeding to payment.');
-    }
-  };
-  
+ const handleBuyNow = () => {
+  if (cart.length > 0) {
+    navigate('/payment', { state: { cart } }); // Navigate with cart data
+  } else {
+    alert('Your cart is empty! Add items before proceeding to payment.');
+  }
+};
+
 
   // Calculate total number of products and total price
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);

@@ -1,29 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFavorites } from '../context/FavoritesContext';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from "../context/CartContext";
-import { FaHeart } from 'react-icons/fa'; // Import the heart icon for favorite
-import styles from './Favourite.module.css'; 
+import { FaHeart } from 'react-icons/fa';
+import styles from './Favourite.module.css';
 
 const FavoritesPage = () => {
   const { favorites, removeFromFavorites } = useFavorites();
-  const { addToCart } = useCart();
+  const { addToCart, cart } = useCart();
   const navigate = useNavigate();
 
-  // Function to add product to cart and remove from favorites
+  // Function to add product to cart
   const handleAddToCart = (product) => {
-    addToCart(product); // Add product to cart
-    removeFromFavorites(product.id); // Remove product from favorites
-    navigate('/cart'); // Navigate to Cart page
+    addToCart(product);
+  };
+
+  // Function to check if product is already in cart
+  const isInCart = (productId) => {
+    return cart.some((item) => item.id === productId);
   };
 
   // Function to remove product from favorites
   const handleRemoveFromFavorites = (productId) => {
-    removeFromFavorites(productId); // Remove product from favorites
+    removeFromFavorites(productId);
   };
 
-   // Handle navigation to ProductDetails page
-   const handleNavigateToProductDetails = (id, image, name, price) => {
+  // Handle navigation to ProductDetails page
+  const handleNavigateToProductDetails = (id, image, name, price) => {
     navigate(`/product/${id}`, { state: { id, image, name, price } });
   };
 
@@ -37,13 +40,13 @@ const FavoritesPage = () => {
           {favorites.map((product) => (
             <div key={product.id} className={styles.card}>
               <div className={styles.imageContainer}>
-              <img
+                <img
                   src={product.image}
                   alt={product.name}
                   className={styles.productImage}
-                  onClick={() => handleNavigateToProductDetails(product.id, product.image, product.name, product.price)} // Use product details instead of card
+                  onClick={() => handleNavigateToProductDetails(product.id, product.image, product.name, product.price)}
                 />
-                
+
                 {/* Favorite Icon */}
                 <div className={styles.favoriteIcon}>
                   <FaHeart className={styles.favoriteIconStyle} />
@@ -53,12 +56,29 @@ const FavoritesPage = () => {
               {/* Product Details (Name and Price) */}
               <div className={styles.productDetails}>
                 <h3 className={styles.productName}>{product.name}</h3>
-                <p className={styles.productPrice}>{product.price}</p>
+                <p className={styles.productPrice}>₹{product.price.toFixed(2)}</p>
               </div>
 
+              {/* Button or Text Box */}
               <div className={styles.buttonContainer}>
-                <button onClick={() => handleRemoveFromFavorites(product.id)}>Delete</button>
-                <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
+                <button
+                  className={styles.deleteButton}
+                  onClick={() => handleRemoveFromFavorites(product.id)}
+                >
+                  Delete
+                </button>
+                {isInCart(product.id) ? (
+                  <div className={styles.inCartTextBox}>
+                    Item in Cart
+                  </div>
+                ) : (
+                  <button
+                    className={styles.addToCartButton}
+                    onClick={() => handleAddToCart(product)}
+                  >
+                    Add to Cart
+                  </button>
+                )}
               </div>
             </div>
           ))}

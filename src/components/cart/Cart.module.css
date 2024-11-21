@@ -51,7 +51,7 @@
 
 .quantityButton {
   padding: 5px 10px;
-  background-color: #007bff;
+  background-color: #2a2a2b;
   color: white;
   border: none;
   border-radius: 5px;
@@ -59,12 +59,16 @@
   margin-bottom: 5px;
 }
 
+.quantityButton :hover{
+background-color: #f9f9f9;
+}
+
 .quantityCount {
   margin: 0 10px;
 }
 
 .removeButton {
-  background-color: #ff4d4d;
+  background-color: #333232;
   color: white;
   padding: 5px 10px;
   border: none;
@@ -90,12 +94,13 @@
 }
 
 .continueShopping {
-  background-color: #28a745;
+  background-color: #2dc050;
   color: white;
+  width: 200px;
 }
 
 .buyNow {
-  background-color: #007bff;
+  background-color: orange;
   color: white;
 }
 .orderSummary {

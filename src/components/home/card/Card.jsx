@@ -19,16 +19,16 @@ import image10 from '../logoimg/logo10.jpeg';
 
 // Sample card data
 const cardData = [
-  { id: "card-1", image: image1, name: "Brand Logo 1", price: 100 },
-  { id: "card-2", image: image2, name: "Brand Logo 2", price: 200 },
-  { id: "card-3", image: image3, name: "Brand Logo 3", price: 300 },
-  { id: "card-4", image: image4, name: "Brand Logo 4", price: 400 },
-  { id: "card-5", image: image5, name: "Brand Logo 5", price: 500 },
-  { id: "card-6", image: image6, name: "Brand Logo 6", price: 600 },
-  { id: "card-7", image: image7, name: "Brand Logo 7", price: 700 },
-  { id: "card-8", image: image8, name: "Brand Logo 8", price: 800 },
-  { id: "card-9", image: image9, name: "Brand Logo 9", price: 900 },
-  { id: "card-10", image: image10, name: "Brand Logo 10", price: 1000 },
+  { id: "card-1", image: image1, name: "Logo1", price: 100.00 },
+  { id: "card-2", image: image2, name: "Logo 2", price: 200 },
+  { id: "card-3", image: image3, name: "Logo 3", price: 300 },
+  { id: "card-4", image: image4, name: "Logo 4", price: 400 },
+  { id: "card-5", image: image5, name: "Logo 5", price: 500 },
+  { id: "card-6", image: image6, name: "Logo 6", price: 600 },
+  { id: "card-7", image: image7, name: "Logo 7", price: 700 },
+  { id: "card-8", image: image8, name: "Logo 8", price: 800 },
+  { id: "card-9", image: image9, name: "Logo 9", price: 900 },
+  { id: "card-10", image: image10, name:"Logo 10", price: 1000 },
 ];
 
 const CardsGrid = () => {
@@ -55,59 +55,62 @@ const CardsGrid = () => {
 
   return (
     <div>
-      <h1 className={styles.heading}>Best Seller</h1>
-      
-      <div className={styles.cardContainer}>
-        {cardData.map((card) => (
-          <div className={styles.card} key={card.id}>
-            <div className={styles.imageContainer}>
-              <img
-                src={card.image}
-                alt={card.name}
-                className={styles.image}
-                onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)}
-              />
+    <h1 className={styles.heading}>Best Seller</h1>
+    
+    <div className={styles.cardContainer}>
+  {cardData.map((card) => (
+    <div className={styles.card} key={card.id}>
+      <div className={styles.imageContainer}>
+        <img
+          src={card.image}
+          alt={card.name}
+          className={styles.image}
+          onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)}
+        />
+        {/* Favorite Icon */}
+        <div className={styles.favoriteIconContainer}>
+          <FaHeart
+            className={styles.favoriteIcon}
+            onClick={() => handleAddToFavorites(card)}
+          />
+        </div>
+      </div>
 
-              {/* Favorite Icon */}
-              <div className={styles.favoriteIconContainer}>
-                <FaHeart
-                  className={styles.favoriteIcon}
-                  onClick={() => handleAddToFavorites(card)} // Add to favorites and navigate
-                />
-              </div>
-            </div>
+      <div className={styles.details}>
+        {/* Text Details: Name and Price */}
+        <div className={styles.textContainer}>
+          <span
+            className={styles.name}
+            onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)}
+          >
+          {card.name}
+          </span>
+         
+          <span
+            className={styles.price}
+            onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)}
+          >
+            Rs.{card.price}
+          </span>
+          
+        </div>
 
-            <div className={styles.details}>
-              {/* Name clickable to navigate to ProductDetails */}
-              <span
-                className={styles.name}
-                onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)}
-              >
-                {card.name}
-              </span>
-
-              {/* Add to Cart Button */}
-             {/* Add to Cart Button */}
-             <button
-                className={styles.addToCartButton}
-                onClick={() => handleAddToCart(card)} // Add to cart and navigate to cart page
-              >
-                Add to Cart
-              </button>
-            </div>
-           
-
-            {/* Price */}
-            <span
-              className={styles.price}
-              onClick={() => handleNavigateToProductDetails(card.id, card.image, card.name, card.price)} // Navigate to ProductDetails when clicked
-            >
-              Rs.{card.price}
-            </span>
-          </div>
-        ))}
+        {/* Add to Cart Button */}
+        <div className={styles.addToCartContainer}>
+          <button
+            className={styles.addToCartButton}
+            onClick={() => handleAddToCart(card)}
+          >
+            Add to Cart 
+          </button>
+        </div>
       </div>
     </div>
+  ))}
+</div>
+
+  </div>
+  
   );
 };
 

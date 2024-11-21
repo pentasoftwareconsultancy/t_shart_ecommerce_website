@@ -1,151 +1,94 @@
 .paymentPage {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    gap: 20px;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-  }
-  
-  /* Left Section */
-  .leftSection {
-    flex: 1;
-    max-width: 48%; /* Equal widths for larger screens */
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  /* Cart Items and Address Form */
-  .cartItems, .addressForm {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    width: 100%;
-    box-shadow: #ddd;
-  }
-  
-  /* Cart Grid */
-  .cartGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 20px;
-  }
-  
-  .cartItem {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 8px;
-    height: 250px;
-  }
-  
-  .productImage {
-    max-width: 100px;
-    height: auto;
-    border-radius: 4px;
-  }
-  
-  /* Address Form */
-  .addressForm form div {
-    margin-bottom: 10px;
-  }
-  
-  .addressForm form label {
-    display: block;
-    font-weight: bold;
-  }
-  
-  .addressForm form input, .addressForm form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  /* Right Section */
-  .rightSection {
-    flex: 1;
-    max-width: 48%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  /* Order Summary, Payment Mode, and Card Details */
-  .orderSummary, .paymentMode, .cardDetails {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-  }
-  
-  .paymentMode div {
-    margin-bottom: 10px;
-  }
-  
-  .paymentMode label {
-    font-weight: bold;
-  }
-  
-  .cardDetails form div {
-    margin-bottom: 10px;
-  }
-  
-  .cardDetails form label {
-    display: block;
-    font-weight: bold;
-  }
-  
-  .cardDetails form input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .cardExpiration {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  
-  /* MEDIA QUERIES FOR RESPONSIVENESS */
-  
-  /* For tablets and smaller screens (max-width: 768px) */
-  @media (max-width: 768px) {
-    .paymentPage {
-      flex-direction: column; /* Stack sections vertically */
-    }
-  
-    .leftSection, .rightSection {
-      max-width: 100%; /* Take full width */
-    }
-  }
-  
-  /* For mobile screens (max-width: 480px) */
-  @media (max-width: 480px) {
-    .cartGrid {
-      grid-template-columns: 1fr; /* Single column layout for cart items */
-    }
-  
-    .productImage {
-      max-width: 80px; /* Smaller images for mobile */
-    }
-  
-    .paymentMode div, .cardDetails form div {
-      margin-bottom: 8px;
-    }
-  
-    .cardDetails form input {
-      padding: 6px; /* Reduce padding for smaller inputs */
-    }
-  
-    .cardExpiration {
-      flex-direction: column; /* Stack expiration fields vertically */
-    }
-  }
-  
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 70px;
+}
+
+.leftSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rightSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cartItems, .addressForm, .orderSummary, .paymentMode, .cardDetails {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.cartGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.cartItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.productImage {
+  max-width: 100px;
+  height: auto;
+}
+
+.cardExpiration {
+  display: flex;
+  gap: 10px;
+}
+
+
+.cardDetails form div {
+  margin-bottom: 10px;
+}
+
+.cardDetails form label {
+  display: block;
+  font-weight: bold;
+}
+
+.cardDetails form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.cardExpiration {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Address Form */
+.addressForm form div {
+  margin-bottom: 10px;
+}
+
+.addressForm form label {
+  display: block;
+  font-weight: bold;
+}
+
+.addressForm form input, .addressForm form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}

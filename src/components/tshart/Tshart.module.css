@@ -103,7 +103,11 @@
 
 .favoriteIcon {
   font-size: 1.5em;
-  color: rgb(196, 31, 31); /* Red color for the heart */
+  color:white; /* Red color for the heart */
+}
+
+.favoriteIcon:hover{
+  color: red;
 }
 
 
