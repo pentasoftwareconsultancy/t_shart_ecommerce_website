@@ -242,7 +242,13 @@
     margin-top: 13px;
     margin-right: 30px;
   }
-
+.cartIcon{
+  font-size: 10px; /* Slightly smaller font */
+  padding: 1px 4px; /* Reduced padding */
+  min-width: 15px; /* Adjusted size */
+  top: -3px; /* Repositioning for better alignment */
+  right: -3px;
+}
   .searchBar {
     width: auto;
     padding-right: 225px;
@@ -263,6 +269,13 @@
     z-index: 10;
     /* padding-left: 5px; */
     margin-right: -120px;
+  }
+  .cartCount {
+    font-size: 9px; /* Smaller font for very small screens */
+    padding: 1px 3px; /* Compact padding */
+    min-width: 16px; /* Compact size */
+    top:5px; /* Align closer for small icons */
+    right: -15px;
   }
 
   .Logo {
@@ -285,7 +298,7 @@
   .icons{
     /* display: none; */
     gap: 7px;
-    margin-left: -10px;
+    margin-left: -45px;
   }
   .iconss {
     margin-top: 13px;
