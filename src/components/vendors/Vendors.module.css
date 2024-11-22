@@ -13,8 +13,7 @@
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 800px;                /* Make cards smaller for vertical layout */
-             /* Limit max width */
+    width: 800px;              /* Default width for larger screens */
     padding: 15px;
     align-items: center;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -24,8 +23,6 @@
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   }
-  
-  
   
   .image {
     width: 150px;
@@ -69,5 +66,43 @@
   .details p {
     font-size: 16px;
     color: #777;
+  }
+  
+  /* Mobile responsive styles */
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px;
+      margin-top: 70px;
+    }
+  
+    .card {
+      width: 100%;         /* Make the card take full width on mobile */
+      flex-direction: column;  /* Stack content vertically on small screens */
+      align-items: flex-start; /* Align items to the left */
+    }
+  
+    .image {
+      width: 120px;        /* Reduce image size on mobile */
+      height: 120px;       /* Adjust height accordingly */
+      margin-right: 0;     /* Remove margin between image and text */
+      margin-bottom: 10px; /* Add margin between image and text */
+    }
+  
+    .details {
+      align-items: flex-start; /* Align text to the left */
+      padding-left: 10px;      /* Add padding to separate text from the image */
+    }
+  
+    .name {
+      font-size: 1.1rem;   /* Slightly smaller name for mobile */
+    }
+  
+    .rating {
+      font-size: 0.9rem;   /* Adjust rating font size */
+    }
+  
+    .details p {
+      font-size: 14px;     /* Smaller description font for mobile */
+    }
   }
   
