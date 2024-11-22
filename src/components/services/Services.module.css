@@ -1,0 +1,171 @@
+.container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+    justify-items: center;
+}
+
+.card {
+    width: 250px;
+    height: 340px; /* Increased height for the card */
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+.favorite {
+    position: absolute; /* Position it relative to the image container */
+    top: 10px; /* Adjust the distance from the top of the container */
+    right: 10px; /* Adjust the distance from the right of the container */
+    font-size: 1.5rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.favorite:hover {
+    color: red;
+}
+
+.imageContainer {
+    position: relative; 
+    width: 100%;
+    height: 60%; /* Increased height for the image container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.image {
+    width: 100%;
+    height: 220px;
+    object-fit: fill;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.details {
+    width: 100%;
+    text-align: center;
+}
+
+.name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-size: 1rem;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Center the items vertically */
+    gap: 20px; /* Add space between the button and the icon */
+    margin-top: auto; /* Push actions to the bottom of the container */
+}
+
+.addToCart {
+    background-color: #292a29;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.addToCart:hover {
+    background-color: #757675;
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for tablets and smaller screens */
+        gap: 15px; /* Reduced gap */
+    }
+
+    .card {
+        width: 200px;
+        height: 300px; /* Adjusted height for smaller screens */
+    }
+
+    .image {
+        height: 180px; /* Reduced image height */
+    }
+
+    .addToCart {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+
+    .favorite {
+        font-size: 1.3rem; /* Slightly smaller icon for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr; /* One column for small screens */
+        gap: 10px; /* Reduced gap */
+    }
+
+    .card {
+        width: 100%; /* Take full width on small screens */
+        height: auto; /* Auto height for better adjustment */
+    }
+
+    .image {
+        height: 300px;
+        width: 270px; /* Further reduced image height */
+    }
+
+    .name,
+    .price,
+    .description {
+        font-size: 0.9rem; /* Reduced font size for better fit */
+    }
+
+    .addToCart {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+
+    .favorite {
+        font-size: 1.2rem; /* Smaller icon */
+    }
+}
