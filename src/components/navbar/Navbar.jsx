@@ -10,7 +10,7 @@ const Navbar = () => {
   const [profileOpen, setProfileOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const { cartCount, removeFromCart } = useCart(); // Access cartCount from CartContext
+  const { cartCount } = useCart(); // Access cartCount from CartContext
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const toggleCollections = () => setCollectionsOpen(!collectionsOpen);
@@ -77,17 +77,15 @@ const Navbar = () => {
           <FaHeart className={styles.icon} />
         </Link>
         <Link to="/cart" className={styles.cartIcon}>
-  <FaShoppingCart className={styles.icon} />
-  {cartCount > 0 && (
-    <span className={styles.cartCount}>{cartCount}</span>
-  )}
-</Link>
+          <FaShoppingCart className={styles.icon} />
+          {cartCount > 0 && <span className={styles.cartCount}>{cartCount}</span>}
+        </Link>
         <div className={styles.dropdown}>
           <FaUserCircle className={styles.iconss} onClick={toggleProfile} />
           {profileOpen && (
             <ul className={styles.profileDropdownMenu}>
               <li>
-                <Link to="/wishlist">Wishlist</Link>
+                <Link to="/favorites">Wishlist</Link>
               </li>
               <li>
                 <Link to="/cart">Cart</Link>

@@ -1,0 +1,73 @@
+/* Vendors.module.css */
+.container {
+    display: flex;
+    flex-direction: column;    /* Stack the cards vertically */
+    align-items: center;       /* Center the cards horizontally */
+    gap: 20px;                 /* Add space between each card */
+    padding: 20px;
+    margin-top: 90px;
+  }
+  
+  .card {
+    display: flex;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 800px;                /* Make cards smaller for vertical layout */
+             /* Limit max width */
+    padding: 15px;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  
+  .image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+  
+  .details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .rating {
+    font-size: 1rem;
+    color: #ffba00;
+    margin-bottom: 10px;
+  }
+  
+  .starFilled {
+    color: gold;
+    margin-right: 3px;
+  }
+  
+  .starEmpty {
+    color: #ddd;
+    margin-right: 3px;
+  }
+  
+  .details p {
+    font-size: 16px;
+    color: #777;
+  }
+  
