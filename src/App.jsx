@@ -31,6 +31,7 @@ import ImagessPages from "./pages/imagessPage/ImagessPages";
 // import CartPages from "./pages/cartPages/CartPages";
 import PaymentPages from "./pages/paymentPages/PaymentPages";
 import VendorsPages from "./pages/vendorsPages/VendorsPages";
+import ServicesPages from "./pages/servicesPages/ServicesPages";
 function App() {
   return (
     <FavoritesProvider>
@@ -59,6 +60,7 @@ function App() {
          <Route path = "/Vendors" element={<VendorsPages />} />
 
          <Route path = "/payment" element={<PaymentPages/>} /> 
+         <Route path = "/services" element={<ServicesPages />}/>
 
       </Routes>
       <Whatsapp/>
