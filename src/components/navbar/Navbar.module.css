@@ -197,13 +197,13 @@
   position: absolute;
   top: -5px;
   right: -5px;
-  background-color: red;
+  background-color: rgb(242, 24, 24);
   color: white;
   font-size: 12px;
   font-weight: bold;
   padding: 2px 5px;
-  border-radius: 50%;
-  min-width: 20px;
+  border-radius: 100%;
+  min-width: 10px;
   text-align: center;
   line-height: 14px;
 }
