@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { FaSearch, FaHeart, FaShoppingCart, FaUserCircle } from "react-icons/fa";
-import { useCart } from "../context/CartContext"; // Make sure path is correct
+import { useCart } from "../context/CartContext"; // Ensure the path is correct
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,18 +12,20 @@ const Navbar = () => {
 
   const { cartCount } = useCart(); // Access cartCount from CartContext
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-  const toggleCollections = () => setCollectionsOpen(!collectionsOpen);
-  const toggleProfile = () => setProfileOpen(!profileOpen);
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const toggleCollections = () => setCollectionsOpen((prev) => !prev);
+  const toggleProfile = () => setProfileOpen((prev) => !prev);
 
   const handleSearchChange = (e) => setSearchQuery(e.target.value);
-  
 
   return (
     <nav className={styles.navbar}>
+      {/* Logo */}
       <div className={styles.logo}>
         <Link to="/">Logo</Link>
       </div>
+
+      {/* Navigation Links */}
       <ul className={`${styles.navLinks} ${menuOpen ? styles.active : ""}`}>
         <li>
           <Link to="/">Home</Link>
@@ -31,10 +33,19 @@ const Navbar = () => {
         <li>
           <Link to="/aboutus">About</Link>
         </li>
-        <li className={styles.dropdown}>
-          <span onClick={toggleCollections} className={styles.dropdownToggle}>
+        <li
+          className={`${styles.dropdown} ${collectionsOpen ? styles.active : ""}`}
+        >
+          <Link
+            to="#"
+            className={styles.dropdownToggle}
+            onClick={(e) => {
+              e.preventDefault();
+              toggleCollections();
+            }}
+          >
             Collections
-          </span>
+          </Link>
           {collectionsOpen && (
             <ul className={styles.dropdownMenu}>
               <li>
@@ -47,12 +58,10 @@ const Navbar = () => {
           )}
         </li>
         <li>
-        <Link to="/services"> Services</Link> 
-          
+          <Link to="/services">Services</Link>
         </li>
         <li>
-        <Link to="/Vendors">Vendors</Link>
-
+          <Link to="/vendors">Vendors</Link>
         </li>
         <li>
           <Link to="/contact">Contact</Link>
@@ -73,15 +82,19 @@ const Navbar = () => {
 
       {/* Icons Section */}
       <div className={styles.icons}>
-        <Link to="/favorites">
+        <Link to="/favorites" className={styles.iconWrapper}>
           <FaHeart className={styles.icon} />
+          <span className={styles.iconBadge}>0</span>
         </Link>
-        <Link to="/cart" className={styles.cartIcon}>
+        <Link to="/cart" className={styles.iconWrapper}>
           <FaShoppingCart className={styles.icon} />
-          {cartCount > 0 && <span className={styles.cartCount}>{cartCount}</span>}
+          {cartCount > 0 && <span className={styles.iconBadge}>{cartCount}</span>}
         </Link>
-        <div className={styles.dropdown}>
-          <FaUserCircle className={styles.iconss} onClick={toggleProfile} />
+        <div className={styles.profileDropdown}>
+          <FaUserCircle
+            className={styles.icon}
+            onClick={toggleProfile}
+          />
           {profileOpen && (
             <ul className={styles.profileDropdownMenu}>
               <li>
@@ -99,7 +112,7 @@ const Navbar = () => {
       </div>
 
       {/* Hamburger Menu for Mobile */}
-      <div className={styles.menuToggle} onClick={toggleMenu}>
+      <div className={styles.hamburger} onClick={toggleMenu}>
         <div className={styles.bar}></div>
         <div className={styles.bar}></div>
         <div className={styles.bar}></div>

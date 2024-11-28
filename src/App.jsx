@@ -1,6 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-
-
 import HomePages from "./pages/homePage/HomePages";
 import AboutPage from "./pages/aboutusPages/AboutUsPage";
 import TshartPages from "./pages/tshartPages/TshartPages";
@@ -11,8 +9,6 @@ import Login from "./components/profile/login/Login";
 import Tshart from "./components/tshart/Tshart";
 import CardsGrid from "./components/home/card/Card"; // Import your Card component
 import ProductDetails from "./components/home/productDetails/ProductDetails"; // Import ProductDetails component
-
-import "./App.css";
 import Contact from "./components/contact/Contact";
 import ContactUsPages from "./pages/contactUsPages/ContactUsPages";
 import LoginPage from "./pages/loginPage/LoginPage";
@@ -28,10 +24,10 @@ import FavoritesProvider from "./components/context/FavoritesContext";
 import CartProvider from "./components/context/CartContext";
 import Cart from "./components/cart/Cart";
 import ImagessPages from "./pages/imagessPage/ImagessPages";
-// import CartPages from "./pages/cartPages/CartPages";
 import PaymentPages from "./pages/paymentPages/PaymentPages";
 import VendorsPages from "./pages/vendorsPages/VendorsPages";
 import ServicesPages from "./pages/servicesPages/ServicesPages";
+import "./App.css";
 function App() {
   return (
     <FavoritesProvider>
