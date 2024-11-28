@@ -1,44 +1,46 @@
-
+/* Hero Section */
 .heroSection {
-  margin: 2rem;
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
-  background-color: #ffffff;
-  border: 2px solid #e0e0e0; /* Add a light gray border */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+  width: 120%;
+  max-width: 1200px; /* Reduced width */
+  height: 70vh; /* Reduced height */
+  margin: 2rem auto;
+  background-color: #a6dab9;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-.heroSection:hover {
-  transform: scale(1.05);
-}
-
-/* Content Section */
-.content {
-  max-width: 50%;
+/* Text Content */
+.textContent {
+  flex: 1;
   padding: 20px;
+  text-align: left;
+  padding-left: 50px;
 }
 
 .title {
-  font-size: 36px;
+  font-size: 24px; 
   font-weight: bold;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
 .description {
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  line-height: 1.4;
+  margin-bottom: 15px;
 }
 
 .ctaButton {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 8px 16px;
+  font-size: 14px;
   font-weight: bold;
   color: white;
   background-color: #007bff;
@@ -52,42 +54,111 @@
   background-color: #0056b3;
 }
 
-/* Images Section */
-.images {
+/* Image Content */
+.imageContent {
+  flex: 1;
   display: flex;
-  gap: 20px;
   justify-content: center;
+  gap: 10px;
 }
 
 .image {
-  width: 270px;
+  width: 250px; /* Reduced width */
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
 }
 
-.image:hover {
-  transform: scale(1.05);
+/* Arrows */
+.arrowLeft,
+.arrowRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  border: none;
+  padding: 0px;
+  font-size: 18px;
+  z-index: 10;
 }
 
-/* Responsive Styles */
+.arrowLeft {
+  left: 10px;
+}
+
+.arrowRight {
+  right: 10px;
+}
+
+/* Mobile Responsive Styles */
 @media (max-width: 768px) {
   .heroSection {
     flex-direction: column;
-    text-align: center;
+    height: auto; 
+    width: 100%;
+    padding-left: 50px; 
+    padding-right: 50px;
   }
 
-  .content {
-    max-width: 100%;
+  .textContent {
+    width: 100%;
+    text-align: left;
+    padding-left: 0; 
   }
 
-  .images {
-    flex-direction: column;
+  .title {
+    font-size: 20px; 
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
+  .description {
+    font-size: 12px; 
+    margin-bottom: 10px;
+  }
+
+  .ctaButton {
+    padding: 10px 20px;
+    font-size: 12px; 
+  }
+
+  .imageContent {
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
   }
 
   .image {
-    width: 80%;
-    margin-bottom: 20px;
+    width: 50%; 
+    height: auto; 
+  }
+
+  /* Adjust arrows for mobile */
+  .arrowLeft,
+  .arrowRight {
+    font-size: 24px; 
+    padding: 10px;
+  }
+}
+
+/* Small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .title {
+    font-size: 18px; 
+  }
+
+  .description {
+    font-size: 12px; 
+  }
+
+  .ctaButton {
+    font-size: 12px;
+    padding: 8px 15px; 
+  }
+
+  .image {
+    width: 90%; 
   }
 }

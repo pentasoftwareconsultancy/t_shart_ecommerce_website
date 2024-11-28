@@ -36,7 +36,7 @@
 
 .cardContainer {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  grid-template-columns: repeat(3, 1fr); /* 4 cards per row */
   gap: 10px; /* Adjusted gap between items */
   padding: 30px 30px; /* Padding to prevent overflow */
   background-color: whitesmoke;

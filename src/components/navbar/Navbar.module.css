@@ -4,20 +4,21 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: white;
   color: #ffffff;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: white;
+  text-align: center;
 }
 
 /* Logo */
 .logo a {
   font-size: 20px;
   font-weight: bold;
-  color: #ffffff;
-  text-decoration: none;
+  color: black;
+  text-decoration:none; /* Ensure text-decoration is none */
 }
 
 /* Navigation Links */
@@ -28,15 +29,15 @@
 }
 
 .navLinks a {
-  color: #ffffff;
-  text-decoration: none;
+  color: black;
+ 
   font-size: 18px;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .navLinks a:hover {
-  color: #f8f9fa;
+  color: black;
 }
 
 /* Dropdown Menu */
@@ -46,7 +47,7 @@
 
 .dropdownToggle {
   color: #ffffff;
-  text-decoration: none;
+ 
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
@@ -83,15 +84,13 @@
 }
 
 .dropdownMenu a {
-  color: #007bff;
-  text-decoration: none;
-  font-size: 14px;
+  color: black;
+
 }
 
 .dropdownMenu a:hover {
-  color: #0056b3;
+  color: rgb(4, 4, 4);
 }
-
 
 /* Search Bar */
 .searchBar {
@@ -104,14 +103,14 @@
   padding: 8px 35px 8px 10px;
   font-size: 14px;
   border: 1px solid #ced4da;
-  border-radius: 5px;
+  border-radius: 10px;
   width: 200px;
 }
 
 .searchIcon {
   position: absolute;
   right: 10px;
-  color: #ced4da;
+  color: #000000;
   font-size: 16px;
 }
 
@@ -130,7 +129,7 @@
 
 .icon {
   font-size: 18px;
-  color: #ffffff;
+  color: black;
   cursor: pointer;
 }
 
@@ -177,12 +176,12 @@
 }
 
 .profileDropdownMenu a {
-  color: #007bff;
-  text-decoration: none;
+  color: #050505;
+  text-decoration: none; /* Ensure text-decoration is none */
 }
 
 .profileDropdownMenu a:hover {
-  color: #0056b3;
+  color: #ffffff;
 }
 
 /* Hamburger Menu */
@@ -204,7 +203,7 @@
   .navLinks {
     display: none;
     flex-direction: column;
-    background-color: #007bff;
+    background-color: #ffffff;
     position: absolute;
     top: 70px;
     right: 0;

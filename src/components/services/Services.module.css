@@ -21,7 +21,7 @@
 
 .card {
     width: 250px;
-    height: 350px; /* Increased height for the card */
+    height: 400px; /* Increased height for the card */
     background-color: whitesmoke;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -107,6 +107,7 @@
     font-size: 0.9rem;
     transition: background-color 0.3s ease;
     margin-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 .addToCart:hover {
