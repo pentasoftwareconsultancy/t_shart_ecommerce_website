@@ -8,6 +8,7 @@
   background-color:whitesmoke;
   margin-top: 70px;
   padding-right: 30px;
+  margin-top: 10px;
 }
 
 .imageContainer {
@@ -95,7 +96,7 @@ h3 {
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  width: 20%;
+  width: 30%;
   text-align: center;
 }
 

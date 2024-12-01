@@ -13,32 +13,34 @@
 .cardContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 4 cards per row */
-  gap: 30px; /* Adjusted gap between items */
+  gap: 10px; /* Adjusted gap between items */
   padding: 30px 30px; /* Padding to prevent overflow */
-  background-color: white;
+  background-color: whitesmoke;
   justify-items: center;
-  padding-bottom: 40px;
+  padding-bottom: 90px;
   max-width: 100%;
-  box-sizing: border-box;
-  overflow-x: hidden;
+  box-sizing: border-box; 
+  overflow-x: hidden; 
   width: 100%;
+  margin-bottom: 0px;
+  
 }
 
 .card {
   background-color: white;
-  border-radius: 20px; /* Rounded corners for the card */
+  border-radius: 20px;
   overflow: hidden;
-  height: 360px; /* Adjusted card height */
-  width: 350px; /* Reduced width for a more compact design */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.176);
+  height: 350px; /* Adjusted card height */
+  width: 330px; /* Reduced width for a more compact design */
+  box-shadow: 0 4px 8px rgba(46, 45, 45, 0.1);
   transition: box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   padding: 10px;
   justify-content: flex-start; /* Align content from top to bottom */
   position: relative;
+  margin-top: 70px;
 }
-
 .card:hover {
   box-shadow: 0 8px 16px rgba(54, 54, 54, 0.2); /* Darker shadow on hover */
 }

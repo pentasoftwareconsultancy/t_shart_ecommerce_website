@@ -1,148 +1,91 @@
-/* Navbar Styles */
 .navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 160px;
+}
+
+/* Top Section: Search, Logo, Icons */
+.topSection {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: white;
-  color: #ffffff;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: white;
-  text-align: center;
+  width: 100%;
 }
 
-/* Logo */
-.logo a {
-  font-size: 20px;
-  font-weight: bold;
-  color: black;
-  text-decoration:none; /* Ensure text-decoration is none */
-}
-
-/* Navigation Links */
-.navLinks {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-
-.navLinks a {
-  color: black;
- 
-  font-size: 18px;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.navLinks a:hover {
-  color: black;
-}
-
-/* Dropdown Menu */
-.dropdown {
-  position: relative;
-}
-
-.dropdownToggle {
-  color: #ffffff;
- 
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.dropdownToggle:hover {
-  color: #f8f9fa;
-}
-
-.dropdownMenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #ffffff;
-  color: #000000;
-  list-style: none;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: none;
-  z-index: 100;
-}
-
-.dropdown.active .dropdownMenu {
-  display: block;
-}
-
-.dropdownMenu li {
-  margin-bottom: 5px;
-}
-
-.dropdownMenu li:last-child {
-  margin-bottom: 0;
-}
-
-.dropdownMenu a {
-  color: black;
-
-}
-
-.dropdownMenu a:hover {
-  color: rgb(4, 4, 4);
-}
-
-/* Search Bar */
 .searchBar {
+  position: relative;
+  flex: 1;
   display: flex;
   align-items: center;
-  position: relative;
+  margin-right: 20px;
+  margin-top: 30px;
 }
 
 .searchInput {
-  padding: 8px 35px 8px 10px;
-  font-size: 14px;
-  border: 1px solid #ced4da;
-  border-radius: 10px;
-  width: 200px;
+  width: 200px; /* Fixed width for the search box */
+  padding-right: 35px; /* Add space for the icon inside the input */
+  padding-left: 10px; /* Space for user text input */
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .searchIcon {
-  position: absolute;
-  right: 10px;
-  color: #000000;
-  font-size: 16px;
+  position: relative;
+  right: 30px; /* Align the icon inside the input */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #333;
+  cursor: pointer; /* Optional: make the icon clickable */
 }
 
-/* Icons Section */
+
+.logo {
+  flex: 1;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  font-weight: bolder;
+}
+
 .icons {
+  flex: 1;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .iconWrapper {
   position: relative;
-  display: flex;
-  align-items: center;
 }
 
 .icon {
-  font-size: 18px;
-  color: black;
+  font-size: 1.5rem;
+  color: #333;
   cursor: pointer;
+}
+
+.icon.active {
+  color: #060606;
 }
 
 .iconBadge {
   position: absolute;
   top: -5px;
   right: -10px;
-  background: #dc3545;
+  background: red;
   color: white;
-  font-size: 10px;
-  font-weight: bold;
-  padding: 2px 5px;
-  border-radius: 50%;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 100%;
 }
 
 /* Profile Dropdown */
@@ -152,70 +95,89 @@
 
 .profileDropdownMenu {
   position: absolute;
+  top: 100%;
   right: 0;
-  top: 30px;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #fff;
   list-style: none;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: none;
+  width: 150px;
+  text-align: left;
 }
 
 .profileDropdownMenu li {
-  margin-bottom: 5px;
-}
-
-.profileDropdownMenu li:last-child {
-  margin-bottom: 0;
-}
-
-.profileDropdown:hover .profileDropdownMenu {
-  display: block;
-}
-
-.profileDropdownMenu a {
-  color: #050505;
-  text-decoration: none; /* Ensure text-decoration is none */
-}
-
-.profileDropdownMenu a:hover {
-  color: #ffffff;
-}
-
-/* Hamburger Menu */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
+  padding: 10px;
   cursor: pointer;
 }
 
-.bar {
-  width: 25px;
-  height: 3px;
-  background-color: white;
+.profileDropdownMenu li:hover {
+  background-color: #f5f5f5;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .navLinks {
-    display: none;
-    flex-direction: column;
-    background-color: #ffffff;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    width: 100%;
-    padding: 20px;
-  }
+.profileDropdown .icon.active + .profileDropdownMenu {
+  display: block;
+}
 
-  .navLinks.active {
-    display: flex;
-  }
+/* Navigation Links */
+.navLinksContainer {
+  width: 200%;
+  text-align: center;
+  margin-top: 20px;
+  color: #060606;
+}
 
-  .hamburger {
-    display: flex;
-  }
+.navLinks {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  position: relative;
+}
+
+.navLinks li {
+  font-size: 1.5rem; /* Increase font size */
+  font-weight: bold; /* Make text bold */
+}
+
+.navLinks a {
+  text-decoration: none; /* Remove underline */
+  color: #000; /* Set text color to black */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.navLinks a:hover {
+  color: #000000; /* Optional: Change color on hover */
+}
+
+.dropdown {
+  position: relative; /* Position the parent for the dropdown */
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%; /* Position it directly below the parent */
+  left: 0;
+  z-index: 10; /* Ensure it appears in front */
+  background-color: #fff;
+  list-style: none;
+  padding: 10px 0;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: none; /* Initially hidden */
+}
+
+.dropdown.active .dropdownMenu {
+  display: block; /* Show dropdown on active state */
+}
+
+.dropdownMenu li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdownMenu li:hover {
+  background-color: #f5f5f5;
 }

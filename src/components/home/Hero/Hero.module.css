@@ -1,18 +1,19 @@
 /* Hero Section */
 .heroSection {
   position: relative;
-  display: flex;
+  display:flex;
   align-items: center;
   justify-content: space-between;
-  width: 120%;
-  max-width: 1200px; /* Reduced width */
+  width: 1270px;
+  max-width: 1800px; /* Reduced width */
   height: 70vh; /* Reduced height */
-  margin: 2rem auto;
+  
   background-color: #a6dab9;
   border: 2px solid #e0e0e0;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  /* overflow: hidden; */
+  
 }
 
 /* Text Content */
