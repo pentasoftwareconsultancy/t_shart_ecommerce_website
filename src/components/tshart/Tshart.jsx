@@ -51,10 +51,7 @@ const Tshart = () => {
   };
   return (
     <div>
-      {/* Grey Background Banner Text */}
-      <div className={styles.bannerText}>
-        <span>**Trendy Logo**</span>
-      </div>
+     
 
       <div className={styles.cardContainer}>
         {cardData.map((card) => (

@@ -36,7 +36,7 @@ const Navbar = () => {
 
         {/* Logo */}
         <div className={styles.logo}>
-          <Link to="/">**LogoWebsite**</Link>
+          <Link to="/"> **LOGO WEBSITE **</Link>
         </div>
 
         {/* Icons */}
